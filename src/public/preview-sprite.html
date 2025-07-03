@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>SVG Sprite Preview</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      background: #f9f9fa;
+      margin: 0;
+      padding: 32px;
+    }
+
+    .icons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 36px 48px;
+      align-items: center;
+      margin-top: 24px;
+    }
+
+    .icon-preview {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 110px;
+      margin-bottom: 12px;
+      font-size: 14px;
+      color: #222;
+      background: #fff;
+      border-radius: 8px;
+      box-shadow: 0 1px 4px #0001;
+      padding: 12px 6px 8px 6px;
+    }
+
+    .icon-preview svg {
+      display: block;
+      margin-bottom: 8px;
+      background: #eee;
+      border-radius: 5px;
+      width: 48px;
+      height: 48px;
+    }
+
+    .icon-preview .big svg {
+      width: 83px;
+      height: 22px;
+      background: #e6e6e6;
+    }
+
+    .icon-id {
+      word-break: break-all;
+      color: #666;
+      font-size: 12px;
+      margin-top: 2px;
+      text-align: center;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>SVG Sprite Preview</h1>
+
+  <div class="icons">
+    <div class="icon-preview big">
+      <svg>
+        <use xlink:href="sprite.svg#book-logo-black"></use>
+      </svg>
+      <div class="icon-id">book-logo-black</div>
+    </div>
+    <div class="icon-preview big">
+      <svg>
+        <use xlink:href="sprite.svg#book-logo-white"></use>
+      </svg>
+      <div class="icon-id">book-logo-white</div>
+    </div>
+    <div class="icon-preview">
+      <svg width="32" height="32">
+        <use xlink:href="sprite.svg#smooth-arrow-up"></use>
+      </svg>
+      <div class="icon-id">smooth-arrow-up</div>
+    </div>
+    <div class="icon-preview">
+      <svg width="32" height="32">
+        <use xlink:href="sprite.svg#smooth-arrow-down"></use>
+      </svg>
+      <div class="icon-id">smooth-arrow-down</div>
+    </div>
+    <div class="icon-preview">
+      <svg width="32" height="32">
+        <use xlink:href="sprite.svg#cross"></use>
+      </svg>
+      <div class="icon-id">cross</div>
+    </div>
+    <div class="icon-preview">
+      <svg width="32" height="32">
+        <use xlink:href="sprite.svg#arrow-up"></use>
+      </svg>
+      <div class="icon-id">arrow-up</div>
+    </div>
+    <div class="icon-preview">
+      <svg width="32" height="32">
+        <use xlink:href="sprite.svg#arrow-down"></use>
+      </svg>
+      <div class="icon-id">arrow-down</div>
+    </div>
+    <div class="icon-preview">
+      <svg width="32" height="32">
+        <use xlink:href="sprite.svg#arrow-left"></use>
+      </svg>
+      <div class="icon-id">arrow-left</div>
+    </div>
+    <div class="icon-preview">
+      <svg width="32" height="32">
+        <use xlink:href="sprite.svg#arrow-right"></use>
+      </svg>
+      <div class="icon-id">arrow-right</div>
+    </div>
+    <div class="icon-preview">
+      <svg width="32" height="32">
+        <use xlink:href="sprite.svg#chevron-up"></use>
+      </svg>
+      <div class="icon-id">chevron-up</div>
+    </div>
+    <div class="icon-preview">
+      <svg width="32" height="32">
+        <use xlink:href="sprite.svg#chevron-down"></use>
+      </svg>
+      <div class="icon-id">chevron-down</div>
+    </div>
+    <div class="icon-preview">
+      <svg width="32" height="32">
+        <use xlink:href="sprite.svg#chevron-left"></use>
+      </svg>
+      <div class="icon-id">chevron-left</div>
+    </div>
+    <div class="icon-preview">
+      <svg width="32" height="32">
+        <use xlink:href="sprite.svg#chevron-right"></use>
+      </svg>
+      <div class="icon-id">chevron-right</div>
+    </div>
+    <div class="icon-preview">
+      <svg width="32" height="8">
+        <use xlink:href="sprite.svg#minus"></use>
+      </svg>
+      <div class="icon-id">minus</div>
+    </div>
+    <div class="icon-preview">
+      <svg width="32" height="32">
+        <use xlink:href="sprite.svg#plus"></use>
+      </svg>
+      <div class="icon-id">plus</div>
+    </div>
+    <div class="icon-preview">
+      <svg width="32" height="32">
+        <use xlink:href="sprite.svg#check"></use>
+      </svg>
+      <div class="icon-id">check</div>
+    </div>
+    <div class="icon-preview">
+      <svg width="32" height="32">
+        <use xlink:href="sprite.svg#close"></use>
+      </svg>
+      <div class="icon-id">close</div>
+    </div>
+    <div class="icon-preview">
+      <svg width="32" height="32">
+        <use xlink:href="sprite.svg#star"></use>
+      </svg>
+      <div class="icon-id">star</div>
+    </div>
+    <div class="icon-preview">
+      <svg width="32" height="32">
+        <use xlink:href="sprite.svg#menu"></use>
+      </svg>
+      <div class="icon-id">menu</div>
+    </div>
+    <div class="icon-preview">
+      <svg width="32" height="32">
+        <use xlink:href="sprite.svg#mail"></use>
+      </svg>
+      <div class="icon-id">mail</div>
+    </div>
+    <div class="icon-preview">
+      <svg width="32" height="32">
+        <use xlink:href="sprite.svg#phone"></use>
+      </svg>
+      <div class="icon-id">phone</div>
+    </div>
+    <div class="icon-preview">
+      <svg width="32" height="32">
+        <use xlink:href="sprite.svg#geo"></use>
+      </svg>
+      <div class="icon-id">geo</div>
+    </div>
+  </div>
+</body>
+
+</html>
