@@ -96,7 +96,7 @@
 }
 
 .ac .ac-trigger::after {
-  content: none;
+  content: url('../public/sprite.svg#smooth-arrow-down');
   text-align: center;
   width: 15px;
   transform: translate(0, -50%);
@@ -111,6 +111,9 @@
     background: transparent;
 }
 
+.ac.is-active > .ac-header .ac-trigger::after {
+  content: url('../public/sprite.svg#smooth-arrow-up');
+}
 /* #endregion BV Book Modal */
 
 
