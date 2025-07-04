@@ -95,17 +95,27 @@ text-align: center;
     margin-bottom: 32px;
 }
 
+.ac {
+    background-color: transparent !important;
+}
+
 .ac .ac-trigger {
-    border-top: 1px solid rgba(11, 5, 0, 0.15);
-    background: transparent;
-    color: var(--color-muted);
-    width: 100%;
-    display: flex;
-    padding: 16px 0px;
-    justify-content: space-between;
-    align-content: center;
-    box-shadow: none;
-    border-radius: 0;
+    font: var(--font-main) !important;
+    border-top: 1px solid rgba(11, 5, 0, 0.15) !important;
+    background-color: transparent !important;
+    color: var(--color-muted) !important;
+    width: 100% !important;
+    display: flex !important;
+    padding: 16px 0px !important;
+    justify-content: space-between !important;
+    align-content: center !important;
+    box-shadow: none !important;
+    border-radius: 0 !important;
+    font-weight: 600 !important;
+font-size: 18px !important;
+
+/* line-height: 27px; */ 
+line-height: 150% !important;
 }
 
 /* .ac .ac-trigger::after {
@@ -122,10 +132,14 @@ text-align: center;
   top: 50%;
 } */
 
+.ac .ac-trigger::after {
+    content: none !important;
+}
+
 .ac-trigger:hover,
 .ac-trigger:active,
 .ac-trigger:focus {
-    background: transparent;
+    background: transparent !important;
 }
 
 /* .ac.is-active > .ac-header .ac-trigger::after {
@@ -134,11 +148,11 @@ text-align: center;
 } */
 
 .ac .ac-trigger .trigger-icon {
-    transition: transform 0.3s ease;
+    transition: transform 0.3s ease !important;
 }
 
 .ac.is-active .ac-trigger .trigger-icon {
-    transform: rotate(180deg);
+    transform: rotate(180deg) !important;
 }
 
 .ac .ac-trigger .icon-box {

@@ -103,7 +103,7 @@ input[type="submit"] {
   padding: 12px 24px;
   cursor: pointer;
   transition: background var(--transition), box-shadow var(--transition);
-  box-shadow: var(--shadow);
+  /* box-shadow: var(--shadow); BV comment - unnecessary shadow*/ 
   outline: none;
   margin: 0.2em 0;
 }
@@ -112,7 +112,7 @@ input[type="submit"] {
   background: transparent;
   border: 1px solid #0b0500;
   border-radius: 4px;
-  color: var(--color-muted)
+  color: var(--color-muted);
 }
 
 .btn-secondary:hover {
