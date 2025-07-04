@@ -3,6 +3,9 @@
 import Accordion from "accordion-js";
 import "accordion-js/dist/accordion.min.css";
 
+import iziToast from "izitoast";
+import "izitoast/dist/css/iziToast.min.css";
+
 const bookModal = document.querySelector(".book-modal-overlay")
 const bookModalClose = document.querySelector(".book-modal-close");
 const counterAdd = document.querySelector("#btn-add");
@@ -44,12 +47,25 @@ addToCart.addEventListener('click', () => {
     console.log(counter.textContent);
 });
 
-buyNow.addEventListener('submit', (event) => {
-    event.preventDefault();
+buyNow.addEventListener('click', () => {
     if(counter.textContent === "0") {
-        alert('Візміть спочатку продукт');
+        iziToast.error({
+            message: "Спочатку візьміть продукт",
+            closeOnClick: true,
+            position: "bottomCenter",
+            backgroundColor: "#ad0000",
+            messageColor: "white",
+        });
+        return;
     }
-    window.alert("Дякуємо за покупку");
+    iziToast.success({
+        message: 'Дякуємо за покупку!',
+        closeOnClick: true,
+        position: "bottomCenter",
+        timeout: 100000,
+        backgroundColor: "var(--color-primary)",
+        messageColor: "white",
+    });
 })
 
 new Accordion(".accordion-container");

@@ -28,7 +28,8 @@
     border-radius: 16px;
     padding: 64px 16px;
     background: var(--color-bg);
-    width: 343px;
+    width: 100%;
+    max-width: 343px;
 }
 
 .book-modal-close {
@@ -95,6 +96,18 @@ text-align: center;
     margin-bottom: 32px;
 }
 
+.iziToast {
+    font-family: var(--font-main) !important;
+}
+
+.iziToast-close {
+    margin: 0 !important; 
+}
+
+.iziToast::after {
+    box-shadow: none !important;
+}
+
 .ac {
     background-color: transparent !important;
 }
@@ -159,6 +172,8 @@ line-height: 150% !important;
     width: 24px;
     height: 24px;
 }
+
+
 
 
 /* #endregion BV Book Modal */
