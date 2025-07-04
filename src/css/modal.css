@@ -23,10 +23,13 @@
 
 .book-modal {
     position: absolute;
+    display: flex;
+    flex-direction: column;
     border-radius: 16px;
     padding: 64px 16px;
     background: var(--color-bg);
-    width: 343px;
+    width: 100%;
+    max-width: 343px;
 }
 
 .book-modal-close {
@@ -71,6 +74,16 @@
     border-radius: 4px;
     padding: 8px 12px;
     background: rgba(11, 5, 0, 0.05);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    font-weight: 400;
+font-size: 16px;
+
+/* line-height: 24px; */ 
+line-height: 150%;
+text-align: center;
 }
 
 .add-btn {
@@ -83,37 +96,86 @@
     margin-bottom: 32px;
 }
 
-.ac .ac-trigger {
-    border-top: 1px solid rgba(11, 5, 0, 0.15);
-    background: transparent;
-    color: var(--color-muted);
-    width: 100%;
-    display: flex;
-    padding: 16px 0px;
-    justify-content: space-between;
-    align-content: center;
-    box-shadow: none;
+.iziToast {
+    font-family: var(--font-main) !important;
 }
 
-.ac .ac-trigger::after {
-  content: url('../public/sprite.svg#smooth-arrow-down');
+.iziToast-close {
+    margin: 0 !important; 
+}
+
+.iziToast::after {
+    box-shadow: none !important;
+}
+
+.ac {
+    background-color: transparent !important;
+}
+
+.ac .ac-trigger {
+    font: var(--font-main) !important;
+    border-top: 1px solid rgba(11, 5, 0, 0.15) !important;
+    background-color: transparent !important;
+    color: var(--color-muted) !important;
+    width: 100% !important;
+    display: flex !important;
+    padding: 16px 0px !important;
+    justify-content: space-between !important;
+    align-content: center !important;
+    box-shadow: none !important;
+    border-radius: 0 !important;
+    font-weight: 600 !important;
+font-size: 18px !important;
+
+/* line-height: 27px; */ 
+line-height: 150% !important;
+}
+
+/* .ac .ac-trigger::after {
+  content: "";
+    background-image: url('../public/sprite.svg#smooth-arrow-down');
+    background-size: contain;
+    background-repeat: no-repeat;
+  fill: #0B0500;
   text-align: center;
   width: 15px;
   transform: translate(0, -50%);
   position: absolute;
   right: 10px;
   top: 50%;
+} */
+
+.ac .ac-trigger::after {
+    content: none !important;
 }
 
 .ac-trigger:hover,
 .ac-trigger:active,
 .ac-trigger:focus {
-    background: transparent;
+    background: transparent !important;
 }
 
-.ac.is-active > .ac-header .ac-trigger::after {
+/* .ac.is-active > .ac-header .ac-trigger::after {
   content: url('../public/sprite.svg#smooth-arrow-up');
+  fill: #0B0500;
+} */
+
+.ac .ac-trigger .trigger-icon {
+    transition: transform 0.3s ease !important;
 }
+
+.ac.is-active .ac-trigger .trigger-icon {
+    transform: rotate(180deg) !important;
+}
+
+.ac .ac-trigger .icon-box {
+    width: 24px;
+    height: 24px;
+}
+
+
+
+
 /* #endregion BV Book Modal */
 
 
