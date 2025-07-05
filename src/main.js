@@ -1,7 +1,7 @@
-// import './js/api';
+import './js/api';
 // import './js/header';
 // import './js/hero';
-// import './js/books';
+import './js/books';
 // import './js/feedbacks';
 // import './js/events';
 // import './js/article';
