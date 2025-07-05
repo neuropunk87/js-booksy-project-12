@@ -178,4 +178,145 @@ line-height: 150% !important;
 
 /* #endregion BV Book Modal */
 
+textarea {
+    resize: none;
+}
 
+.contact-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.25);
+    width: 100%;
+    height: 100%;
+    z-index: 999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1), visibility 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    opacity: 0;
+    pointer-events: none;
+    padding: 32px 16px;
+}
+
+.open {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.contact-modal {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    border-radius: 16px;
+    padding: 64px 16px;
+    width: 100%;
+    max-width: 343px;    
+    background-color: #fceee6;
+}
+
+.contact-modal-close {
+    position: absolute;
+    top: 24px;
+    right: 24px;
+    background: none;
+    outline: none;
+    border: none;
+    background-color: transparent;
+    box-shadow: none;
+    padding: 0;
+    margin: 0;
+}
+
+.contact-modal-close:hover,
+.contact-modal-close:focus {
+    background: transparent;
+}
+
+.contact-modal-header {
+    font-weight: 600;
+    color: #0b0500;
+    font-size: 48px;
+    line-height: 120%;
+    letter-spacing: -0.01em;
+    text-align: center;
+    margin-bottom: 16px;
+}
+
+.contact-modal-event {
+    font-weight: 400;
+    color: #0b0500;
+    font-size: 24px;
+    line-height: 140%;
+    letter-spacing: -0.01em;
+    text-align: center;
+    margin-bottom: 48px;
+}
+
+.contact-modal-form {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.contact-form-label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 150%;
+}
+
+.contact-form-input::placeholder {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 150%;
+    color: rgba(0, 0, 0, 0.6);
+    transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
+}
+
+.contact-form-input {
+    height: 40px;
+    width: 100%;
+    padding: 8px 12px;
+    border-radius: 8px;
+    color: #0b0500;
+    border: 1px solid rgba(11, 5, 0, 0.15);
+    background-color: rgba(11, 5, 0, 0.05);
+    transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+        color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+textarea.contact-form-input {
+    height: 180px;
+}
+
+.contact-form-button {
+    align-self: center;
+}
+
+.invalid {
+    border-color: #ad0000;
+    color: #ad0000;
+}
+
+@media screen and (min-width: 768px) {
+    .contact-modal {
+        width: 708px;
+        max-width: 708px;
+        padding: 64px 32px;
+    }
+
+    .contact-form-button {
+        width: 342px;
+    }
+}
+
+@media screen and (min-width: 1440px) {
+    .contact-modal {
+        width: 866px;
+        max-width: 866px;
+        padding: 64px 64px;
+    }
+}

@@ -68,6 +68,71 @@ buyNow.addEventListener('click', () => {
     });
 })
 
-new Accordion(".accordion-container");
+new Accordion(".accordion-container"); 
 
+// contact-modal
 
+const contactModal = document.querySelector(".contact-modal-overlay")
+const contactModalClose = document.querySelector(".contact-modal-close");
+const contactForm = document.querySelector(".contact-modal-form");
+
+contactModalClose.addEventListener("click", () => {
+    contactModal.classList.remove("open");
+    closeContactModal();
+});
+
+document.addEventListener("keydown", (event)  => {
+    if(event.key !== "Escape") {
+        return;
+    }
+    contactModal.classList.remove("open");
+    closeContactModal();
+});
+
+contactModal.addEventListener('click', (event) => {
+    if(event.currentTarget !== event.target) {
+        return;
+    }
+    contactModal.classList.remove("open");
+    closeContactModal();
+});
+
+contactForm.addEventListener("submit", function (event) {
+    event.preventDefault();
+
+    const contactInputs = contactForm.querySelectorAll(".contact-form-input");
+    let isValid = true;
+
+    contactInputs.forEach(input => {
+        if (!input.checkValidity()) {
+            isValid = false;
+            input.classList.add("invalid");
+            iziToast.error({
+                title: 'Invalid Input',
+                message: `${input.name} is not valid.`,
+                position: 'topRight',
+            });
+        } else {
+            input.classList.remove("invalid");
+        }
+    });
+
+    if (isValid) {
+        iziToast.success({
+            title: 'Valid Input',
+            message: `Registered successfully.`,
+            position: 'topRight',
+        });
+        contactForm.reset();
+    }
+});
+
+function closeContactModal() {
+  document.querySelector('.contact-modal-overlay').style.display = 'none';
+  document.body.style.overflow = ''; 
+}
+
+function openContactModal() {
+  document.querySelector('.contact-modal-overlay').style.display = 'flex';
+  document.body.style.overflow = 'hidden';
+}
