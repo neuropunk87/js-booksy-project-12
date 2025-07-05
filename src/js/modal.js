@@ -1,4 +1,4 @@
-//BV book modal
+//#region BV book modal
 
 import Accordion from 'accordion-js';
 import 'accordion-js/dist/accordion.min.css';
@@ -20,7 +20,11 @@ const modalAddBtn = document.getElementById('modalAddBtn');
 const modalBuyBtn = document.getElementById('modalBuyBtn');
 const modalAccordion = document.getElementById('modalAccordion');
 
-let modalCount = 1;
+let modalCount = 0;
+
+function capitalizeFirst(str) {
+    return str.charAt(0).toUpperCase() + str.slice(1).toLowerCase();
+}
 
 // Global func to open modal from books.js
 window.openBookModal = function (book) {
@@ -29,11 +33,11 @@ window.openBookModal = function (book) {
   // Filling with data
   modalImg.src = book.book_image;
   modalImg.alt = book.title;
-  modalTitle.textContent = book.title;
+  modalTitle.textContent = capitalizeFirst(book.title);
   modalAuthor.textContent = book.author;
   modalPrice.textContent = `$${book.price || '—'}`;
-  modalCounter.textContent = '1';
-  modalCount = 1;
+  modalCounter.textContent = '0';
+  modalCount = 0;
   buildAccordion(book);
 
   // Open the modal
@@ -64,7 +68,7 @@ document.addEventListener('keydown', e => {
 // Counter
 if (modalMinusBtn && modalCounter) {
   modalMinusBtn.addEventListener('click', () => {
-    if (modalCount > 1) modalCount--;
+    if (modalCount > 0) modalCount--;
     modalCounter.textContent = modalCount;
   });
 }
@@ -78,14 +82,26 @@ if (modalPlusBtn && modalCounter) {
 // Add to cart
 if (modalAddBtn) {
   modalAddBtn.addEventListener('click', () => {
+    if(modalCount === 0 || modalCounter.textContent === 0) {
+        iziToast.error({
+            message: 'Спочатку візьміть товар',
+            position: 'bottomCenter',
+            backgroundColor: '#ad0000',
+            messageColor: "white",
+            closeOnClick: true,
+        });
+        return;
+    }
     iziToast.success({
       message: `Добавлено в корзину: ${modalCount}`,
       position: 'bottomCenter',
       backgroundColor: 'var(--color-primary)',
       messageColor: 'white',
+      closeOnClick: true,
     });
   });
 }
+
 
 // Buy now
 if (modalBuyBtn) {
@@ -95,6 +111,7 @@ if (modalBuyBtn) {
       position: 'bottomCenter',
       backgroundColor: 'var(--color-primary)',
       messageColor: 'white',
+      closeOnClick: true,
     });
   });
 }
@@ -135,7 +152,7 @@ function buildAccordion(book) {
   });
   new Accordion('.accordion-container', {
     duration: 200,
-    showMultiple: false,
+    showMultiple: true,
     openOnInit: [0],
   });
 }
