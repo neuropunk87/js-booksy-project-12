@@ -50,6 +50,12 @@
     background: transparent;
 }
 
+.book-modal-img {
+    border-radius: 8px;
+    margin-bottom: 24px;
+    height: 100%;
+}
+
 .book-info-box {
     display: flex;
     gap: 8px;
@@ -61,6 +67,7 @@
     display: flex;
     gap: 8px;
     margin-bottom: 8px;
+    align-items: center;
 }
 
 .counter-btn {
@@ -86,14 +93,25 @@ line-height: 150%;
 text-align: center;
 }
 
+/* .prod-count {
+    margin-bottom: 0;
+} */
+
+.modal-btns {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    margin-bottom: 32px;
+}
+
+
+
 .add-btn {
-    width: 100%;
-    margin-bottom: 24px;
+    width: 100%;;
 }
 
 .book-modal-buy-btn {
     width: 100%;
-    margin-bottom: 32px;
 }
 
 .iziToast {
@@ -110,6 +128,7 @@ text-align: center;
 
 .ac {
     background-color: transparent !important;
+    margin: 0 !important;
 }
 
 .ac .ac-trigger {
@@ -129,6 +148,10 @@ font-size: 18px !important;
 
 /* line-height: 27px; */ 
 line-height: 150% !important;
+}
+
+.ac:last-child {
+    border-bottom: 1px solid rgba(11, 5, 0, 0.15) !important
 }
 
 /* .ac .ac-trigger::after {
@@ -173,7 +196,32 @@ line-height: 150% !important;
     height: 24px;
 }
 
+@media only screen and (min-width: 768px) {
+  .book-modal {
+    max-width: 704px;
+    flex-direction: row;
+    gap: 24px;
+  }
+  .counter-box {
+    margin-bottom: 24px;
+  }
+}
 
+@media only screen and (min-width: 1440px) {
+  .book-modal {
+    max-width: 1300px;
+  }
+  .modal-btns {
+    flex-direction: row;
+    width: 642px;
+  }
+  .book-modal-img {
+    margin-bottom: 0;
+  }
+  .counter-box {
+    margin-bottom: 16px;
+  }
+}
 
 
 /* #endregion BV Book Modal */
