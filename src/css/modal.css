@@ -93,9 +93,9 @@ line-height: 150%;
 text-align: center;
 }
 
-/* .prod-count {
+.prod-count {
     margin-bottom: 0;
-} */
+}
 
 .modal-btns {
     display: flex;
