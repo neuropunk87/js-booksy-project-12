@@ -13,7 +13,7 @@
   <script type="module" crossorigin src="/js-booksy-project-12/index.js"></script>
   <link rel="modulepreload" crossorigin href="/js-booksy-project-12/assets/vendor-Dp5ubpI5.js">
   <link rel="stylesheet" crossorigin href="/js-booksy-project-12/assets/vendor-Ctaf7TWq.css">
-  <link rel="stylesheet" crossorigin href="/js-booksy-project-12/assets/index-DTljvmdY.css">
+  <link rel="stylesheet" crossorigin href="/js-booksy-project-12/assets/index-BgQkViP7.css">
 </head>
 
 <body>
@@ -23,32 +23,57 @@
   
 
   <main>
-    <section class="books-section">
-	<h2 class="visually-hidden">Trending books</h2>
-	<div class="books-section__header">
-		<span class="books-section__subtitle">Books</span>
-		<span class="books-section__count" id="books-count">Showing 0 of 0</span>
-	</div>
-	<div class="books-section__filters">
-		<ul class="categories-list" id="categories-list">
-			<li>
-				<button type="button" class="categories-dropdown-btn" id="categoriesDropdownBtn" aria-haspopup="listbox"
-					aria-expanded="false">
-					<span id="categoriesDropdownSelected">Categories</span>
-					<span class="dropdown-arrow-wrap" id="categoriesDropdownArrowWrap">
-						<svg width="15" height="15" class="dropdown-arrow">
-							<use href="sprite.svg#arrow-down"></use>
-						</svg>
-					</span>
-				</button>
-				<ul class="categories-dropdown-list" id="categoriesDropdownList" tabindex="-1" role="listbox"
-					aria-labelledby="categoriesDropdownBtn"></ul>
-			</li>
-		</ul>
-	</div>
-	<ul class="books-list" id="books-list"></ul>
-	<button type="button" class="books-section__show-more" id="show-more-btn">Show More</button>
+    <section class="books-section" id="books">
+  <div class="container books-container">
+    <h2 class="visually-hidden">Trending books</h2>
+    <div class="books-section-header-container">
+      <div class="books-section__header">
+        <span class="books-section__subtitle">Books</span>
+        <span class="books-section__count" id="books-count"
+          >Showing 0 of 0</span
+        >
+      </div>
+      <div class="books-section__filters">
+        <ul class="categories-list" id="categories-list">
+          <li>
+            <button
+              type="button"
+              class="categories-dropdown-btn"
+              id="categoriesDropdownBtn"
+              aria-haspopup="listbox"
+              aria-expanded="false"
+            >
+              <span id="categoriesDropdownSelected">Categories</span>
+              <span
+                class="dropdown-arrow-wrap"
+                id="categoriesDropdownArrowWrap"
+              >
+                <svg width="15" height="15" class="dropdown-arrow">
+                  <use href="sprite.svg#arrow-down"></use>
+                </svg>
+              </span>
+            </button>
+            <ul
+              class="categories-dropdown-list"
+              id="categoriesDropdownList"
+              tabindex="-1"
+              role="listbox"
+              aria-labelledby="categoriesDropdownBtn"
+            ></ul>
+          </li>
+        </ul>
+        <ul class="sidebar-category-list"></ul>
+      </div>
+    </div>
+    <div class="books-list-box">
+      <ul class="books-list" id="books-list"></ul>
+      <button type="button" class="books-section__show-more" id="show-more-btn">
+        Show More
+      </button>
+    </div>
+  </div>
 </section>
+
     
     <section class="container">
   <p class="events-p">Events</p>
