@@ -17,6 +17,14 @@ const categoriesDropdownSelected = document.getElementById(
 );
 const sideBarCategoryList = document.querySelector('.sidebar-category-list');
 
+// Буглак: додав функцію перетворення назв так, щоб згідно макету кожне слово з великої літери,
+// а не усі слова великими літерами
+function capitalizeWords(str) {
+    return str.split(' ')
+              .map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
+              .join(' ');
+}
+
 let categoriesArr = [];
 let selectedDropdownIdx = 0;
 let allBooks = [];

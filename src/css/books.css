@@ -238,7 +238,7 @@
 }
 
 /* Modal styles */
-.book-modal-overlay {
+/* .book-modal-overlay {
   position: fixed;
   top: 0;
   left: 0;
@@ -448,7 +448,7 @@
 
 .accordion-section.open .accordion-panel {
   display: block;
-}
+} */
 
 @media (max-width: 480px) {
   .books-section {
