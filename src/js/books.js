@@ -20,9 +20,10 @@ const sideBarCategoryList = document.querySelector('.sidebar-category-list');
 // Буглак: додав функцію перетворення назв так, щоб згідно макету кожне слово з великої літери,
 // а не усі слова великими літерами
 function capitalizeWords(str) {
-    return str.split(' ')
-              .map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
-              .join(' ');
+  return str
+    .split(' ')
+    .map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
+    .join(' ');
 }
 
 let categoriesArr = [];
@@ -247,7 +248,7 @@ function getNewTitle(string, n) {
   const arr = string.split(' ');
   let newArr = [];
   arr.forEach(item => {
-    newArr.push(item[0].toUpperCase() + item.slice(1).toLowerCase());
+    newArr.push(item.charAt(0).toUpperCase() + item.slice(1).toLowerCase());
   });
   const res = newArr.join(' ');
   if (res.length >= n) {
