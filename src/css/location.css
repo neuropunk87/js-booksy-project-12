@@ -1,0 +1,102 @@
+body {
+    margin: 0;
+    font-family: "Rubik", sans-serif;
+    background-color: #fceee6;
+}
+
+.section-location {
+    margin-left: 64px;
+    margin-top: 64px;
+    padding: 64px;
+}
+
+.section-label {
+    font-weight: 600;
+    font-size: 16px;
+    color: #0b0500;
+
+}
+
+.location-content {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    align-items: flex-start;
+}
+
+.contact-column {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    flex-direction: column;
+    gap: 24px;
+    padding: 8px 0px;
+    width: 500px;
+    height: 244px;
+
+}
+
+.section-title {
+    font-weight: 600;
+    font-size: 48px;
+    color: #0b0500;
+    margin-bottom: 24px;
+}
+
+.section-text {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-direction: row;
+    gap: 0px;
+    font-weight: 400;
+    font-size: 18px;
+    color: #0b0500;
+    line-height: 1.5;
+    max-width: 732px;
+}
+
+.contact-list {
+    font-weight: 400;
+    font-size: 20px;
+    color: #0b0500;
+}
+
+.contact-blocks {
+    margin-bottom: 24px;
+}
+
+.contact-link {
+    font-weight: 400;
+    font-size: 16px;
+    color: #0b0500;
+    text-decoration: underline;
+    margin-left: 40px;
+}
+
+.contact-geo {
+    font-weight: 400;
+    font-size: 16px;
+    color: #0b0500;
+    margin-left: 40px;
+}
+
+.icon-preview {
+    fill: #0b0500;
+    gap: 16px;
+    display: flex;
+    align-items: center;
+
+}
+
+.contact-label {
+        font-weight: 400;
+        font-size: 20px;
+        line-height: 1.4;
+        color: #0b0500;
+}
+
+.map-container {
+    margin-top: 80px;
+    margin-bottom: 106px;
+}
