@@ -13,7 +13,7 @@
   <script type="module" crossorigin src="/js-booksy-project-12/index.js"></script>
   <link rel="modulepreload" crossorigin href="/js-booksy-project-12/assets/vendor-Dp5ubpI5.js">
   <link rel="stylesheet" crossorigin href="/js-booksy-project-12/assets/vendor-Ctaf7TWq.css">
-  <link rel="stylesheet" crossorigin href="/js-booksy-project-12/assets/index-BgQkViP7.css">
+  <link rel="stylesheet" crossorigin href="/js-booksy-project-12/assets/index-ZPvTsfOV.css">
 </head>
 
 <body>
@@ -196,9 +196,8 @@
   <div class="swiper-pagination"></div>
 </section>
     
-    
-    
-<div class="book-modal-overlay">
+     
+    <div class="book-modal-overlay">
   <div class="book-modal">
     <button type="button" class="book-modal-close">
       <svg width="16" height="16">
@@ -300,6 +299,38 @@
     <div class="accordion-container" id="modalAccordion"></div>
   </div>
 </div> -->
+
+<!-- contact-modal -->
+ <div class="contact-modal-overlay">
+    <div class="contact-modal">
+        <button type="button" class="contact-modal-close">
+            <svg width="16" height="16">
+                <use href="../public/sprite.svg#cross"></use>
+            </svg>
+        </button>
+        <h1 class="contact-modal-header">Register</h1>
+        <p class="contact-modal-event"></p>
+        <form class="contact-modal-form">
+            <div class="contact-form-element">
+                <label class="contact-form-label" for="user-name">Name*</label>
+                <input type="text" name="user-name" class="contact-form-input" id="user-name" 
+                pattern="\w{3,16}" placeholder="Ann" required/>
+            </div>
+            <div class="contact-form-element">
+                <label class="contact-form-label" for="user-email">Email*</label>
+                <input type="email" name="user-email" class="contact-form-input" id="user-email" 
+                pattern="([A-z0-9_.-]{1,})@([A-z0-9_.-]{1,}).([A-z]{2,8})" placeholder="hello@booksy.com" required/>
+            </div>
+            <div class="contact-form-element form-textarea">
+                <label class="contact-form-label" for="user-comment">Message</label>
+                <textarea name="user-comment" id="user-comment" class="contact-form-input" 
+                placeholder="Type your message..."></textarea>
+            </div>
+            <button type="submit" class="contact-form-button">Register</button>
+        </form>
+    </div>
+ </div>
+
   </main>
 
   <footer>
