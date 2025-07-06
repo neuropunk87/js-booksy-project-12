@@ -15,6 +15,7 @@ const categoriesDropdownList = document.getElementById(
 const categoriesDropdownSelected = document.getElementById(
   'categoriesDropdownSelected'
 );
+const sideBarCategoryList = document.querySelector('.sidebar-category-list');
 
 let categoriesArr = [];
 let selectedDropdownIdx = 0;
@@ -25,6 +26,7 @@ let totalCount = 0;
 let currentCategory = '';
 
 const BREAKPOINT_TABLET = 768;
+const BREAKPOINT_DESCTOP = 1440;
 const BOOKS_PER_PAGE_MOBILE = 10;
 const BOOKS_PER_PAGE_TABLET = 24;
 const BOOKS_PER_PAGE_INCREMENT = 4;
@@ -47,6 +49,7 @@ window.addEventListener('resize', () => {
 });
 
 // Dropdown
+
 async function renderCategoriesDropdown() {
   categoriesArr = await fetchCategories();
   categoriesDropdownSelected.textContent = 'Categories';
@@ -62,15 +65,18 @@ async function renderCategoriesDropdown() {
       .join('')}
   `;
 }
+
 function openCategoriesDropdown() {
   categoriesDropdownList.classList.add('open');
   categoriesDropdownBtn.setAttribute('aria-expanded', 'true');
   setTimeout(() => categoriesDropdownList.focus(), 0);
 }
+
 function closeCategoriesDropdown() {
   categoriesDropdownList.classList.remove('open');
   categoriesDropdownBtn.setAttribute('aria-expanded', 'false');
 }
+
 categoriesDropdownBtn.addEventListener('click', e => {
   if (
     e.target.closest('.dropdown-arrow-wrap') ||
@@ -81,6 +87,7 @@ categoriesDropdownBtn.addEventListener('click', e => {
       : openCategoriesDropdown();
   }
 });
+
 categoriesDropdownBtn.addEventListener('keydown', e => {
   if (e.key === 'Enter' || e.key === ' ' || e.key === 'ArrowDown') {
     e.preventDefault();
@@ -159,17 +166,24 @@ async function loadBooks(category = '') {
 }
 
 function renderBook(book) {
+  const { book_image, _id, author, price, title } = book;
+  const width = window.innerWidth;
+  let n;
+  if (width >= BREAKPOINT_DESCTOP) {
+    n = 15;
+  } else if (width < BREAKPOINT_DESCTOP) {
+    n = 30;
+  }
+
   return `
     <li class="books-item">
-      <img class="books-item__img" src="${book.book_image}" alt="${book.title}">
+      <img class="books-item__img" src="${book_image}" alt="${title}">
       <div class="books-item__info">
-        <h3 class="books-item__title">${book.title}</h3>
-        <span class="books-item__price">$${book.price || '—'}</span>
+        <h3 class="books-item__title">${getNewTitle(title, n)}</h3>
+        <span class="books-item__price">$${price || '—'}</span>
       </div>
-      <div class="books-item__author">${book.author}</div>
-      <button type="button" class="books-item__btn" data-id="${
-        book._id
-      }">Learn More</button>
+      <div class="books-item__author">${getNewTitle(author, 30)}</div>
+      <button type="button" class="books-item__btn" data-id="${_id}">Learn More</button>
     </li>
   `;
 }
@@ -188,6 +202,50 @@ function renderBooksList() {
   } else {
     showMoreBtn.style.display = 'block';
   }
+}
+
+// SideBar
+renderCategoriesSidebar();
+
+async function renderCategoriesSidebar() {
+  categoriesArr = await fetchCategories();
+  sideBarCategoryList.innerHTML = `
+  <li class="sidebar-category" data-idx="0"">All categories</li>
+  ${categoriesArr
+    .map(
+      (cat, idx) =>
+        `<li class="sidebar-category" data-idx="${idx + 1}" data-category="${
+          cat.list_name
+        }">${cat.list_name}</li>`
+    )
+    .join('')}
+`;
+  sideBarCategoryList.addEventListener('click', onClick);
+}
+
+function onClick(event) {
+  const idx = Number(event.target.dataset.idx);
+  if (idx === 0) {
+    currentCategory = '';
+    loadBooks('');
+  } else {
+    const currentCategory = event.target.dataset.category;
+    loadBooks(currentCategory);
+  }
+}
+
+// Update title in book card
+function getNewTitle(string, n) {
+  const arr = string.split(' ');
+  let newArr = [];
+  arr.forEach(item => {
+    newArr.push(item[0].toUpperCase() + item.slice(1).toLowerCase());
+  });
+  const res = newArr.join(' ');
+  if (res.length >= n) {
+    return res.slice(0, n).trim() + '...';
+  }
+  return res;
 }
 
 // Show More
