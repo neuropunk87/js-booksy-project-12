@@ -67,21 +67,21 @@ const modalClose = () => {
   document.body.style.overflow = ''
 }
 bookModalClose.addEventListener('click', () => {
-  modalClose
+  modalClose();
 });
 
 document.addEventListener('keydown', event => {
   if (event.key !== 'Escape') {
     return;
   }
-  modalClose
+  modalClose();
 });
 
 bookModal.addEventListener('click', event => {
   if (event.currentTarget !== event.target) {
     return;
   }
-  modalClose
+  modalClose();
 });
 
 // Функціонал додавання товару до корзини (незалежно від кількості товару на лічильнику (якщо не 0))
