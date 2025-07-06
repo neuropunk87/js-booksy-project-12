@@ -16,6 +16,14 @@ const categoriesDropdownSelected = document.getElementById(
   'categoriesDropdownSelected'
 );
 
+// Буглак: додав функцію перетворення назв так, щоб згідно макету кожне слово з великої літери,
+// а не усі слова великими літерами
+function capitalizeWords(str) {
+    return str.split(' ')
+              .map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
+              .join(' ');
+}
+
 let categoriesArr = [];
 let selectedDropdownIdx = 0;
 let allBooks = [];
@@ -163,7 +171,7 @@ function renderBook(book) {
     <li class="books-item">
       <img class="books-item__img" src="${book.book_image}" alt="${book.title}">
       <div class="books-item__info">
-        <h3 class="books-item__title">${book.title}</h3>
+        <h3 class="books-item__title">${capitalizeWords(book.title)}</h3>
         <span class="books-item__price">$${book.price || '—'}</span>
       </div>
       <div class="books-item__author">${book.author}</div>
