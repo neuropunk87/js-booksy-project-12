@@ -62,22 +62,26 @@ counterReduce.addEventListener('click', () => {
 });
 
 // Функціонал закриття модалки (кліком по іконці, за межами модалки та натисканням Esc)
-bookModalClose.addEventListener('click', () => {
+const modalClose = () => {
   bookModal.classList.remove('open');
+  document.body.style.overflow = ''
+}
+bookModalClose.addEventListener('click', () => {
+  modalClose();
 });
 
 document.addEventListener('keydown', event => {
   if (event.key !== 'Escape') {
     return;
   }
-  bookModal.classList.remove('open');
+  modalClose();
 });
 
 bookModal.addEventListener('click', event => {
   if (event.currentTarget !== event.target) {
     return;
   }
-  bookModal.classList.remove('open');
+  modalClose();
 });
 
 // Функціонал додавання товару до корзини (незалежно від кількості товару на лічильнику (якщо не 0))
