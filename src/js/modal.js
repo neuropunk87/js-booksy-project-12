@@ -9,7 +9,7 @@ import 'izitoast/dist/css/iziToast.min.css';
 const bookModal = document.querySelector('.book-modal-overlay');
 const bookModalClose = document.querySelector('.book-modal-close');
 // Можлива ініціалізація інформації про вміст товару в корзині
-// const productAmount = document.querySelector('.prod-count');
+const productAmount = document.querySelector('.prod-count');
 const counterAdd = document.querySelector('#btn-add');
 const counterReduce = document.querySelector('#btn-reduce');
 const counter = document.querySelector('.counter');
@@ -45,6 +45,12 @@ window.openBookModal = function (book) {
   bookModal.classList.add('open');
   document.body.style.overflow = 'hidden';
   bookModalClose && bookModalClose.focus();
+  const itemCount = localStorage.getItem(bookName.textContent) || 0;
+  // Перевірка на наявність продукту у корзині
+  if (!itemCount) {
+    productAmount.innerHTML = ''; 
+  } else
+  {productAmount.innerHTML = `Загальна кількість товару в корзині: ${localStorage.getItem(bookName.textContent)}`}
 };
 
 // Додавання та віднімання кількості товару
@@ -99,8 +105,8 @@ addToCart.addEventListener('click', () => {
   const itemCount = localStorage.getItem(bookName.textContent) || 0;
   const updatedCount = parseInt(itemCount) + modalCount;
   localStorage.setItem(bookName.textContent, updatedCount);
-  // Можливий функціонал отримання інформації про вміст товару в корзині
-  // productAmount.innerHTML = `Загальна кількість товару в корзині: ${updatedCount}`;
+  // Функціонал отримання інформації про вміст товару в корзині
+  productAmount.innerHTML = `Загальна кількість товару в корзині: ${updatedCount}`;
   iziToast.success({
     message: `Додано в корзину: ${modalCount} (Цього товару в корзині: ${updatedCount})`,
     position: 'bottomCenter',
@@ -288,3 +294,67 @@ new Accordion('.accordion-container', {
 //     openOnInit: [0],
 //   });
 // }
+
+
+// contact modal
+
+const contactModal = document.querySelector(".contact-modal-overlay")
+const contactModalClose = document.querySelector(".contact-modal-close");
+const contactForm = document.querySelector(".contact-modal-form");
+
+contactModalClose.addEventListener("click", () => {
+    contactModal.classList.remove("open");
+    closeContactModal();
+});
+
+document.addEventListener("keydown", (event)  => {
+    if(event.key !== "Escape") {
+        return;
+    }
+    contactModal.classList.remove("open");
+    closeContactModal();
+});
+
+contactModal.addEventListener('click', (event) => {
+    if(event.currentTarget !== event.target) {
+        return;
+    }
+    contactModal.classList.remove("open");
+    closeContactModal();
+});
+
+contactForm.addEventListener("submit", function (event) {
+    event.preventDefault();
+
+    const contactInputs = contactForm.querySelectorAll(".contact-form-input");
+    let isValid = true;
+
+    contactInputs.forEach(input => {
+        if (!input.checkValidity()) {
+            isValid = false;
+            input.classList.add("invalid");
+            iziToast.error({
+                title: 'Invalid Input',
+                message: `${input.name} is not valid.`,
+                position: 'topRight',
+            });
+        } else {
+            input.classList.remove("invalid");
+        }
+    });
+
+    if (isValid) {
+        iziToast.success({
+            title: 'Valid Input',
+            message: `Registered successfully.`,
+            position: 'topRight',
+        });
+        contactForm.reset();
+    }
+});
+
+function closeContactModal() {
+    document.querySelector('.contact-modal-overlay').classList.remove('open');
+    document.body.style.overflow = ''; 
+}
+
