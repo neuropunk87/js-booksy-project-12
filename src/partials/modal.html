@@ -1,4 +1,88 @@
-<div class="book-modal-overlay" id="bookModalOverlay">
+<!-- Book Modal -->
+
+<div class="book-modal-overlay">
+  <div class="book-modal">
+    <button type="button" class="book-modal-close">
+      <svg width="16" height="16">
+        <use href="sprite.svg#cross"></use>
+      </svg>
+    </button>
+    <img src="" alt="" class="book-modal-img">
+    <!-- Створено окремий контейнер для інформації, щоб усе стиснулось відповідно макету:
+    Рисунок окремо - уся інформація разом (від 768 пікс.) -->
+    <div class="book-info-container">
+      <div class="book-info-box">
+        <h1 class="book-modal-name"></h1>
+        <p class="book-modal-author"></p>
+        <p class="book-modal-price"></p>
+      </div>
+      <div class="counter-box">
+        <button type="button" id="btn-reduce" class="counter-btn btn-secondary">-</button>
+        <div class="counter">
+          0
+        </div>
+        <button type="button" id="btn-add" class="counter-btn btn-secondary">+</button>
+        <!-- Інший варіант отримання інформації про кількість товару в корзині -->
+        <p class="prod-count"></p>
+      </div>
+      <!-- Аналогічна ситуація, щоб у декстопі (від 1440 пікс.) положення та розмір кнопок 
+       відповідало макету -->
+      <div class="modal-btns">
+        <button type="button" class="add-btn">Add To Cart</button>
+        <button type="submit" class="book-modal-buy-btn btn-secondary">Buy Now</button>
+      </div>
+      <div class="accordion-container">
+        <div class="ac">
+          <h2 class="ac-header">
+            <button type="button" class="ac-trigger">Details
+              <div class="icon-box">
+                <svg class="trigger-icon" width="12" height="12">
+                  <use href="./public/sprite.svg#smooth-arrow-down">
+                </svg>
+              </div>
+            </button>
+          </h2>
+          <div class="ac-panel">
+            <p class="ac-text" id="book-modal-info"></p>
+          </div>
+        </div>
+        <div class="ac">
+          <h2 class="ac-header">
+            <button type="button" class="ac-trigger">Shipping
+              <div class="icon-box">
+                <svg class="trigger-icon" width="12" height="12">
+                  <use href="./public/sprite.svg#smooth-arrow-down">
+                </svg>
+              </div>
+            </button>
+          </h2>
+          <div class="ac-panel">
+            <p class="ac-text">We ship across the United States within 2–5 business days. All orders are processed
+              through USPS or a reliable courier service. Enjoy free standard shipping on orders over $50.</p>
+          </div>
+        </div>
+        <div class="ac">
+          <h2 class="ac-header">
+            <button type="button" class="ac-trigger">Returns
+              <div class="icon-box">
+                <svg class="trigger-icon" width="12" height="12">
+                  <use href="./public/sprite.svg#smooth-arrow-down">
+                </svg>
+              </div>
+            </button>
+          </h2>
+          <div class="ac-panel">
+            <p class="ac-text">You can return an item within 14 days of receiving your order, provided it hasn’t been
+              used and is in its original condition. To start a return, please contact our support team — we’ll guide
+              you through the process quickly and hassle-free.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- <div class="book-modal-overlay" id="bookModalOverlay">
   <div class="book-modal">
     <button type="button" class="book-modal-close" id="modalCloseBtn">
       <svg width="16" height="16">
@@ -13,82 +97,47 @@
     </div>
     <div class="counter-box">
       <button type="button" class="counter-btn btn-secondary" id="modalMinusBtn">-</button>
-      <div class="counter" id="modalCounter">1</div>
+      <div class="counter" id="modalCounter">0</div>
       <button type="button" class="counter-btn btn-secondary" id="modalPlusBtn">+</button>
     </div>
     <button type="button" class="add-btn" id="modalAddBtn">Add To Cart</button>
-    <button type="submit" class="book-modal-buy-btn btn-secondary" id="modalBuyBtn">Buy Now</button>
+    <button type="submit" class="book-modal-buy-btn btn-secondary" id="modalBuyBtn">Buy Now<button>
     <div class="accordion-container" id="modalAccordion"></div>
   </div>
-</div>
+</div> -->
 
-<!-- <div class="book-modal-overlay close">
-  <div class="book-modal">
-    <button type="button" class="book-modal-close">
+
+<!-- ************************************************************************** -->
+
+
+<!-- Contact Modal -->
+
+<div class="contact-modal-overlay">
+  <div class="contact-modal">
+    <button type="button" class="contact-modal-close">
       <svg width="16" height="16">
         <use href="../public/sprite.svg#cross"></use>
       </svg>
     </button>
-    <img src="" alt="">
-    <div class="book-info-box">
-      <h1 class="book-modal-name">Book Name</h1>
-      <p class="book-modal-author">Book Author</p>
-      <p class="book-modal-price">$15</p>
-    </div>
-    <div class="counter-box">
-      <button type="button" id="btn-reduce" class="counter-btn btn-secondary">-</button>
-      <div class="counter">
-        1
+    <h1 class="contact-modal-header">Register</h1>
+    <p class="contact-modal-event"></p>
+    <form class="contact-modal-form">
+      <div class="contact-form-element">
+        <label class="contact-form-label" for="user-name">Name*</label>
+        <input type="text" name="user-name" class="contact-form-input" id="user-name" pattern="\w{3,16}"
+          placeholder="Ann" required />
       </div>
-      <button type="button" id="btn-add" class="counter-btn btn-secondary">+</button>
-    </div>
-    <button type="button" class="add-btn">Add To Cart</button>
-    <button type="submit" class="book-modal-buy-btn btn-secondary">Buy Now</button>
-    <div class="accordion-container">
-      <div class="ac">
-        <h2 class="ac-header">
-          <button type="button" class="ac-trigger">Details
-            <div class="icon-box">
-              <svg class="trigger-icon" width="12" height="12">
-                <use href="./public/sprite.svg#smooth-arrow-down">
-              </svg>
-            </div>
-          </button>
-        </h2>
-        <div class="ac-panel">
-          <p class="ac-text">Info</p>
-        </div>
+      <div class="contact-form-element">
+        <label class="contact-form-label" for="user-email">Email*</label>
+        <input type="email" name="user-email" class="contact-form-input" id="user-email"
+          pattern="([A-z0-9_.-]{1,})@([A-z0-9_.-]{1,}).([A-z]{2,8})" placeholder="hello@booksy.com" required />
       </div>
-
-      <div class="ac">
-        <h2 class="ac-header">
-          <button type="button" class="ac-trigger">Shipping
-            <div class="icon-box">
-              <svg class="trigger-icon" width="12" height="12">
-                <use href="./public/sprite.svg#smooth-arrow-down">
-              </svg>
-            </div>
-          </button>
-        </h2>
-        <div class="ac-panel">
-          <p class="ac-text">Info</p>
-        </div>
+      <div class="contact-form-element form-textarea">
+        <label class="contact-form-label" for="user-comment">Message</label>
+        <textarea name="user-comment" id="user-comment" class="contact-form-input"
+          placeholder="Type your message..."></textarea>
       </div>
-
-      <div class="ac">
-        <h2 class="ac-header">
-          <button type="button" class="ac-trigger">Returns
-            <div class="icon-box">
-              <svg class="trigger-icon" width="12" height="12">
-                <use href="./public/sprite.svg#smooth-arrow-down">
-              </svg>
-            </div>
-          </button>
-        </h2>
-        <div class="ac-panel">
-          <p class="ac-text">Info</p>
-        </div>
-      </div>
-    </div>
+      <button type="submit" class="contact-form-button">Register</button>
+    </form>
   </div>
-</div> -->
+</div>
