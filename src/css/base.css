@@ -1,20 +1,25 @@
 :root {
   --font-main: 'Rubik', sans-serif;
+  --color-accent: #191717;
   --color-bg: #fceee6;
+  --color-bg-modal: rgba(11, 5, 0, 0.05);
+  --color-bg-modal-overlay: rgba(0, 0, 0, 0.25);
+  --color-border: #e2d7ce;
+  --color-border-modal: rgba(11, 5, 0, 0.15);
+  --color-input-bg: #f6f2ee;
+  --color-invalid: #ad0000;
+  --color-muted: #0b0500;
+  --color-primary: #e15d05;
+  --color-primary-active: #b44a04;
+  --color-primary-hover: #0b0500;
+  --color-secondary-active: #dad9d8;
+  --color-secondary-hover: #ea8d50;
   --color-surface: #f9ede5;
   --color-surface-light: #fff;
-  --color-primary: #e15d05;
-  --color-primary-hover: #0b0500;
-  --color-secondary-hover: #ea8d50;
-  --color-primary-active: #b44a04;
-  --color-secondary-active: #dad9d8;
-  --color-accent: #191717;
-  --color-muted: #0b0500;
-  --color-border: #e2d7ce;
-  --color-input-bg: #f6f2ee;
+  --cubic: cubic-bezier(0.4, 0, 0.2, 1);
   --radius: 4px;
-  --transition: 0.2s;
   --shadow: 0 2px 16px 0 rgba(0, 0, 0, 0.07);
+  --transition: 0.2s;
 }
 
 /* Base HTML */
@@ -103,7 +108,7 @@ input[type="submit"] {
   padding: 12px 24px;
   cursor: pointer;
   transition: background var(--transition), box-shadow var(--transition);
-  /* box-shadow: var(--shadow); BV comment - unnecessary shadow*/ 
+  /* box-shadow: var(--shadow); BV comment - unnecessary shadow*/
   outline: none;
   margin: 0.2em 0;
 }
@@ -369,11 +374,11 @@ select {
 .book-modal-price {
   margin-bottom: 0;
   font-weight: 400;
-font-size: 24px;
+  font-size: 24px;
 
-/* line-height: 34px; */ 
-line-height: 140%;
-letter-spacing: -0.01em;
+  /* line-height: 34px; */
+  line-height: 140%;
+  letter-spacing: -0.01em;
 }
 
 .book-modal__details {
