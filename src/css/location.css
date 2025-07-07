@@ -1,7 +1,5 @@
 body {
     margin: 0;
-    font-family: "Rubik", sans-serif;
-    background-color: #fceee6;
 }
 
 .section-location {
@@ -33,7 +31,6 @@ body {
     padding: 8px 0px;
     width: 500px;
     height: 244px;
-
 }
 
 .section-title {
@@ -86,7 +83,6 @@ body {
     gap: 16px;
     display: flex;
     align-items: center;
-
 }
 
 .contact-label {
