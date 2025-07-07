@@ -19,8 +19,9 @@ body {
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
-    align-items: flex-start;
-    gap: 0px;
+    align-items: center;
+    flex-direction: column;
+    gap: 32px;
 }
 
 .section-title {
@@ -133,24 +134,32 @@ body {
     .section-label {
         width: 69px;
         height: 24px;
+
     }
 
     .contact-column {
         padding: 8px 0px;
         width: 336px;
         height: 244px;
+        margin-bottom: 80px;
     }
 
     .location-map {
         min-width: 704px;
+    }
+
+    .location-content {
+       gap: 0px;
+       flex-direction: row;
+       align-items: flex-start;
     }
 }
 
 @media screen and (min-width: 1440px) {
     .section-location {
         padding: 64px;
-        /* margin-left: 64px; */
         margin-top: 64px;
+        margin-left: 64px;
     }
 
     .section-text {
@@ -161,11 +170,6 @@ body {
     .contact-column {
         width: 500px;
         height: 244px;
-    }
-
-    .map-container {
-        margin-top: 80px;
-        margin-bottom: 106px;
     }
 
     .location-map {
