@@ -205,7 +205,7 @@
   background-color: transparent;
   color: var(--color-muted);
   border: 1px solid var(--color-muted);
-  border-radius: 4px;
+  border-radius: var(--radius);
   padding: 8px 0;
   margin-top: 0;
   transition: background-color var(--transition);
