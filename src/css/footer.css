@@ -98,3 +98,42 @@ font-weight: 400;
         color: #0b0500;
         text-align: center;
 }
+/* Styles for Tablet devices */
+@media only screen and (min-width: 768px) {
+  .footer-list {
+    flex-direction: row;
+    justify-content: center;
+  }
+
+  .form-wrap {
+    display: flex;
+    flex-direction: column;
+align-items: flex-start;
+margin: 0 auto;
+width: 400px;
+  }
+  .footer-form-input {
+    width: 278px;
+  }
+  .line {
+    width: 640px;
+  }
+}
+
+/* Styles for Desktop devices */
+@media only screen and (min-width: 1440px) {
+    .footer-wrap {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+.form-wrap {
+    margin: 0;
+}
+.footer-logo {
+    margin: 0 0 32px 0;
+}
+.line {
+    width: 1312px;
+}
+}
