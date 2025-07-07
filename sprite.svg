@@ -67,6 +67,12 @@
   <symbol id="chevron-right" viewBox="0 0 14 14">
     <path d="M5.293 12.293L6.707 13.707L13.414 6.99997L6.707 0.292969L5.293 1.70697L9.586 5.99997H0V7.99997H9.586L5.293 12.293Z" fill="#0B0500"/>
   </symbol>
+  <symbol id="chevron-left-white" viewBox="0 0 14 14">
+    <path d="M8.20694 12.1328L3.91394 7.83981H13.4999V5.83981H3.91394L8.20694 1.54681L6.79294 0.132812L0.0859375 6.83981L6.79294 13.5468L8.20694 12.1328Z" fill="white"/>
+  </symbol>
+  <symbol id="chevron-right-white" viewBox="0 0 14 14">
+    <path d="M5.793 12.1328L7.207 13.5468L13.914 6.83981L7.207 0.132812L5.793 1.54681L10.086 5.83981H0.5V7.83981H10.086L5.793 12.1328Z" fill="white"/>
+  </symbol>
   <symbol id="minus" viewBox="0 0 14 2">
     <path d="M0 0H14V2H0V0Z" fill="#0B0500"/>
   </symbol>
