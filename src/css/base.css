@@ -30,6 +30,7 @@ html {
   color: var(--color-accent);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  scroll-behavior: smooth;
 }
 
 body {
@@ -95,8 +96,8 @@ a:focus {
 
 /* Buttons */
 button,
-input[type="button"],
-input[type="submit"] {
+input[type='button'],
+input[type='submit'] {
   font-family: var(--font-main);
   font-weight: 400;
   font-size: 16px;
@@ -129,18 +130,16 @@ input[type="submit"] {
 }
 
 button:hover,
-input[type="button"]:hover,
-input[type="submit"]:hover {
+input[type='button']:hover,
+input[type='submit']:hover {
   background: var(--color-primary-hover);
 }
 
 button:active,
-input[type="button"]:active,
-input[type="submit"]:active {
+input[type='button']:active,
+input[type='submit']:active {
   background: var(--color-primary-active);
 }
-
-
 
 /* Inputs & Selects */
 input,
