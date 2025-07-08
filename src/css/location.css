@@ -116,7 +116,7 @@ body {
 
 .location-map {
     min-width: 300px;
-    width: 343px;
+    max-width: 343px;
     height: 395px;
 }
 
