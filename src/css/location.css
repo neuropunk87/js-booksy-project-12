@@ -112,6 +112,18 @@ body {
     margin-bottom: 64px;
 }
 
+.location-map {
+    min-width: 300px;
+    width: 343px;
+    height: 395px;
+}
+
+.map-container {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
 @media screen and (min-width: 768px) {
     .section-location {
         padding: 64px 32px;
@@ -128,23 +140,27 @@ body {
         height: 244px;
     }
 
-    .map-embed {
+    /* .map-embed {
         
         width: 704px;
         height: 395px;
-    }
+    } */
 
-    .map-container {
+    /* .map-container {
         width: 704px;
         height: 395px;
         margin-top: 80px;
+    } */
+
+    .location-map {
+        min-width: 704px;
     }
 }
 
 @media  screen and (min-width: 1440px) {
     .section-location {
         padding: 64px;
-        margin-left: 64px;
+        /* margin-left: 64px; */
         margin-top: 64px;
     }
 
@@ -163,8 +179,12 @@ body {
         margin-bottom: 106px;
     }
 
-    .map-container {
+    /* .map-container {
         width: 1312px;
+        height: 738px;
+    } */
+    .location-map {
+        min-width: 1312px;
         height: 738px;
     }
 }
