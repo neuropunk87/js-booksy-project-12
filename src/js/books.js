@@ -5,6 +5,31 @@ import {
   fetchBookById,
 } from './api.js';
 
+// Loader control start
+function showLoader(target = document.body) {
+  const loaderWrap = document.createElement('div');
+  loaderWrap.className = 'loader-backdrop';
+  loaderWrap.style.cssText = `
+    position: fixed;
+    z-index: 1200;
+    inset: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(252,238,230,0.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  `;
+  loaderWrap.innerHTML = `<span class="loader"></span>`;
+  loaderWrap.id = 'main-loader';
+  target.appendChild(loaderWrap);
+}
+function hideLoader() {
+  const exist = document.getElementById('main-loader');
+  if (exist) exist.remove();
+}
+// Loader control end
+
 const booksList = document.getElementById('books-list');
 const booksCount = document.getElementById('books-count');
 const showMoreBtn = document.getElementById('show-more-btn');
@@ -47,7 +72,7 @@ function getBooksPerPage() {
 }
 let booksPerPage = getBooksPerPage();
 
-// // Responsive booksPerPage
+// Responsive booksPerPage
 window.addEventListener('resize', () => {
   const newPerPage = getBooksPerPage();
   if (newPerPage !== booksPerPage) {
@@ -58,11 +83,12 @@ window.addEventListener('resize', () => {
 });
 
 // Dropdown
-
 async function renderCategoriesDropdown() {
-  categoriesArr = await fetchCategories();
-  categoriesDropdownSelected.textContent = 'Categories';
-  categoriesDropdownList.innerHTML = `
+  showLoader();
+  try {
+    categoriesArr = await fetchCategories();
+    categoriesDropdownSelected.textContent = 'Categories';
+    categoriesDropdownList.innerHTML = `
     <li role="option" tabindex="0" data-idx="0" class="selected">All categories</li>
     ${categoriesArr
       .map(
@@ -73,6 +99,9 @@ async function renderCategoriesDropdown() {
       )
       .join('')}
   `;
+  } finally {
+    hideLoader();
+  }
 }
 
 function openCategoriesDropdown() {
@@ -104,12 +133,14 @@ categoriesDropdownBtn.addEventListener('keydown', e => {
     categoriesDropdownList.querySelector('li.selected')?.focus();
   }
 });
+
 categoriesDropdownList.addEventListener('click', e => {
   if (e.target.tagName === 'LI') {
     selectCategoryDropdown(Number(e.target.dataset.idx));
     closeCategoriesDropdown();
   }
 });
+
 categoriesDropdownList.addEventListener('keydown', e => {
   const items = Array.from(categoriesDropdownList.querySelectorAll('li'));
   let idx = items.findIndex(li => li.classList.contains('selected'));
@@ -138,6 +169,7 @@ categoriesDropdownList.addEventListener('keydown', e => {
     categoriesDropdownBtn.focus();
   }
 });
+
 document.addEventListener('mousedown', e => {
   if (
     !categoriesDropdownBtn.contains(e.target) &&
@@ -145,6 +177,7 @@ document.addEventListener('mousedown', e => {
   )
     closeCategoriesDropdown();
 });
+
 function selectCategoryDropdown(idx) {
   selectedDropdownIdx = idx;
   const items = Array.from(categoriesDropdownList.querySelectorAll('li'));
@@ -162,16 +195,21 @@ function selectCategoryDropdown(idx) {
 
 // Books loading and rendering
 async function loadBooks(category = '') {
-  if (category) {
-    allBooks = await fetchBooksByCategory(category);
-  } else {
-    allBooks = await fetchTopBooks();
+  showLoader();
+  try {
+    if (category) {
+      allBooks = await fetchBooksByCategory(category);
+    } else {
+      allBooks = await fetchTopBooks();
+    }
+    filteredBooks = allBooks;
+    totalCount = filteredBooks.length;
+    booksPerPage = getBooksPerPage();
+    displayedCount = Math.min(booksPerPage, totalCount);
+    renderBooksList();
+  } finally {
+    hideLoader();
   }
-  filteredBooks = allBooks;
-  totalCount = filteredBooks.length;
-  booksPerPage = getBooksPerPage();
-  displayedCount = Math.min(booksPerPage, totalCount);
-  renderBooksList();
 }
 
 function renderBook(book) {
@@ -217,19 +255,24 @@ function renderBooksList() {
 renderCategoriesSidebar();
 
 async function renderCategoriesSidebar() {
-  categoriesArr = await fetchCategories();
-  sideBarCategoryList.innerHTML = `
-  <li class="sidebar-category" data-idx="0"">All categories</li>
-  ${categoriesArr
-    .map(
-      (cat, idx) =>
-        `<li class="sidebar-category" data-idx="${idx + 1}" data-category="${
-          cat.list_name
-        }">${cat.list_name}</li>`
-    )
-    .join('')}
-`;
-  sideBarCategoryList.addEventListener('click', onClick);
+  showLoader();
+  try {
+    categoriesArr = await fetchCategories();
+    sideBarCategoryList.innerHTML = `
+    <li class="sidebar-category" data-idx="0"">All categories</li>
+    ${categoriesArr
+      .map(
+        (cat, idx) =>
+          `<li class="sidebar-category" data-idx="${idx + 1}" data-category="${
+            cat.list_name
+          }">${cat.list_name}</li>`
+      )
+      .join('')}
+  `;
+    sideBarCategoryList.addEventListener('click', onClick);
+  } finally {
+    hideLoader();
+  }
 }
 
 function onClick(event) {
@@ -269,10 +312,15 @@ showMoreBtn.addEventListener('click', () => {
 // Modal open (click on Learn More, imported from modal.js)
 booksList.addEventListener('click', async e => {
   if (e.target.classList.contains('books-item__btn')) {
-    const bookId = e.target.dataset.id;
-    const book = await fetchBookById(bookId);
-    if (window.openBookModal && typeof window.openBookModal === 'function') {
-      window.openBookModal(book);
+    showLoader();
+    try {
+      const bookId = e.target.dataset.id;
+      const book = await fetchBookById(bookId);
+      if (window.openBookModal && typeof window.openBookModal === 'function') {
+        window.openBookModal(book);
+      }
+    } finally {
+      hideLoader();
     }
   }
 });
