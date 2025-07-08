@@ -3,7 +3,7 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 
-import { Navigation, Pagination } from 'swiper/modules';
+import { Navigation, Pagination, Autoplay } from 'swiper/modules';
 
 function initSwiper() {
   const container = document.querySelector('.swiper.events-carousel');
@@ -14,11 +14,17 @@ function initSwiper() {
   const paginationEl = document.querySelector('.swiper-pagination');
 
   const swiper = new Swiper(container, {
-    modules: [Navigation, Pagination],
+    modules: [Navigation, Pagination, Autoplay],
     slidesPerView: 1,
     spaceBetween: 24,
     observer: true,
     observeParents: true,
+    loop: true,              
+    autoplay: {
+      delay: 4000,             
+      disableOnInteraction: false, 
+    },
+    speed: 800,
     pagination: { el: paginationEl, clickable: true },
     navigation: { nextEl: next, prevEl: prev }, 
     breakpoints: {
@@ -38,9 +44,12 @@ function initSwiper() {
     },
   });
 
+  container.addEventListener('mouseenter', () => swiper.autoplay.stop());
+  container.addEventListener('mouseleave', () => swiper.autoplay.start());
+
   function toggleNav(sw) {
     const total = sw.slides.length;
-    const visible = Math.floor(sw.slidesPerView);
+    const visible = Math.floor(sw.params.slidesPerView) || 1;
     const hideAll = total <= visible;
 
     if (prev && next) {
@@ -62,3 +71,16 @@ function initSwiper() {
 }
 
 document.addEventListener('DOMContentLoaded', initSwiper);
+
+
+const registerButtons = document.querySelectorAll('.events-register');
+registerButtons.forEach(button => {
+    button.addEventListener('click', (event) => {
+        event.preventDefault();
+        const li = event.currentTarget.closest('.events-list-element');
+        const eventTitle = li.querySelector('.events-name').textContent.trim();
+        document.querySelector('.contact-modal-overlay').classList.add('open');
+        document.body.style.overflow = 'hidden';
+        document.querySelector('.contact-modal-event').textContent = eventTitle;
+    });
+});
