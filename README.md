@@ -13,8 +13,3 @@ you find your next favorite book._<br/><br/>
 ## API Books 1.0.0
 
 https://books-backend.p.goit.global/api-docs/<br/><br/>
-
-> TEAM:
-
-● <br/><br/> ● <br/><br/> ● <br/><br/> ● <br/><br/> ● <br/><br/> ● <br/><br/> ●
-<br/><br/> ● <br/><br/> ● <br/><br/> ● <br/><br/> ● <br/><br/>
