@@ -1,6 +1,7 @@
 :root {
   --font-main: 'Rubik', sans-serif;
   --color-accent: #191717;
+  --color-arrow-btn-active: #5a2502;
   --color-bg: #fceee6;
   --color-bg-modal: rgba(11, 5, 0, 0.05);
   --color-bg-modal-overlay: rgba(0, 0, 0, 0.25);
@@ -14,7 +15,6 @@
   --color-primary-hover: #0b0500;
   --color-secondary-active: #dad9d8;
   --color-secondary-hover: #ea8d50;
-  --color-arrow-btn-active: #5a2502;
   --color-surface: #f9ede5;
   --color-surface-light: #fff;
   --cubic: cubic-bezier(0.4, 0, 0.2, 1);
@@ -451,7 +451,8 @@ img {
   opacity: 0;
   border-radius: 0;
   visibility: hidden;
-  transition: opacity 0.3s ease, visibility 0.3s ease, background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;;
+  transition: opacity 0.3s ease, visibility 0.3s ease, background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+  ;
   z-index: 998;
   fill: #fff;
   display: flex;
