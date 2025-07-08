@@ -89,8 +89,8 @@ header {
   transform: translate(-50%, -50%);
   opacity: 0;
   transition: transform 0.3s ease, opacity 0.3s ease;
-  width: 375px;
-  height: 433px;
+  /* width: 375px;
+  height: 433px; */
   background: #fceee6;
 }
 
@@ -134,11 +134,11 @@ header {
   align-items: center;
   justify-content: center;
 }
-.mobile-nav-links li a:hover {
+/* .mobile-nav-links li a:hover {
   background: linear-gradient(135deg, var(--color-secondary-hover), #00d4ff);
   transition: opacity 0.5s ease;
   color: #fff;
-}
+} */
 .mobile-nav-links li a {
   text-decoration: none;
   color: #0b0500;
