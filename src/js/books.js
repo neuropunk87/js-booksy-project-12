@@ -20,7 +20,11 @@ function showLoader(target = document.body) {
     align-items: center;
     justify-content: center;
   `;
-  loaderWrap.innerHTML = `<span class="loader"></span>`;
+  loaderWrap.innerHTML = `
+  <div class="loader">
+    <span class="loader-booksy-title">Booksy</span>
+  </div>
+  `;
   loaderWrap.id = 'main-loader';
   target.appendChild(loaderWrap);
 }
