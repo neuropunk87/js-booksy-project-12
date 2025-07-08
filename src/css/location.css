@@ -17,10 +17,10 @@ body {
 
 .location-content {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     flex-wrap: wrap;
     align-items: center;
-    flex-direction: column;
+    flex-direction: row;
     gap: 32px;
 }
 
@@ -152,6 +152,7 @@ body {
        gap: 0px;
        flex-direction: row;
        align-items: flex-start;
+       justify-content: space-between;
     }
 }
 
