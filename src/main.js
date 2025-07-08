@@ -8,3 +8,8 @@ import './js/events';
 // import './js/location';
 // import './js/footer';
 import './js/modal';
+import './js/scrollbtn'
+
+
+
+

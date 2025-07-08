@@ -14,6 +14,7 @@
   --color-primary-hover: #0b0500;
   --color-secondary-active: #dad9d8;
   --color-secondary-hover: #ea8d50;
+  --color-arrow-btn-active: #5a2502;
   --color-surface: #f9ede5;
   --color-surface-light: #fff;
   --cubic: cubic-bezier(0.4, 0, 0.2, 1);
@@ -437,6 +438,43 @@ img {
   flex-wrap: wrap;
   gap: 1.2em;
   justify-content: flex-start;
+}
+
+.scroll-btn {
+  position: fixed;
+  bottom: 40px;
+  right: 40px;
+  opacity: 0;
+  border-radius: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease, background-color 0.3s ease;
+  z-index: 1000;
+  fill: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px;
+  width: 48px;
+  height: 48px;
+}
+
+.scroll-btn.scroll-up-icon {
+  fill: #fff !important;
+}
+
+.scroll-btn:hover {
+  background: transparent;
+  border: 1px solid rgba(11, 5, 0, 0.15);
+}
+
+.scroll-btn:active {
+  border: none;
+  background: var(--color-arrow-btn-active);
+}
+
+.scroll-btn.show {
+  opacity: 1;
+  visibility: visible;
 }
 
 @media (max-width: 900px) {
