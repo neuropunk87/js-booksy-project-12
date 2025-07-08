@@ -23,10 +23,10 @@ function flashButton(button) {
   // Знімаємо фокус, щоб уникнути залипання стилів
   button.blur();
 
-  // Прибираємо клас через 15 мс
+  // Прибираємо клас через 150 мс
   setTimeout(() => {
     button.classList.remove('is-active');
-  }, 15);
+  }, 350);
 }
 
 // Ініціалізація слайдера
