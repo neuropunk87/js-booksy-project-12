@@ -1,0 +1,176 @@
+a:hover {
+  text-decoration: none;
+}
+
+.hero-slider {
+  position: relative;
+  width: 1312px;
+  height: 395px;
+  margin: 0 auto;
+  overflow: hidden;
+  border-radius: 16px;
+}
+
+.slide {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  opacity: 0;
+  transition: opacity 0.8s ease-in-out;
+  display: block; /* прибрали flex */
+}
+.banner-1,
+.banner-2 {
+  width: 392px;
+}
+.banner-3,
+.banner-4 {
+  width: 591px;
+}
+.slide.active {
+  opacity: 1;
+  z-index: 1;
+}
+
+.overlay {
+  position: relative;
+  /* width: 100%; */
+  height: 100%;
+  box-sizing: border-box;
+  color: #fff;
+  left: 56px;
+}
+
+.discount {
+  font-family: var(--font-family);
+  font-weight: 600;
+  font-size: 52px;
+  line-height: 120%;
+  letter-spacing: -0.01em;
+  color: var(--color-scheme-3-accent);
+  /* margin-bottom: 20px; */
+  position: absolute;
+  bottom: 116px;
+  margin: 0;
+}
+
+.cta-button {
+  position: absolute;
+  bottom: 56px;
+  /* left: 56px; */
+  background: #ff6f61;
+  color: white;
+  text-decoration: none;
+  font-size: 1rem;
+  padding: 8px 20px;
+  width: 227px;
+  height: 40px;
+  display: block;
+  text-align: center;
+  font-weight: 400;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.cta-button:hover {
+  background-color: #e85c50;
+}
+
+/* Кнопки під банером */
+.slider-controls {
+  margin: 1rem auto 0;
+  display: flex;
+  justify-content: flex-end;
+  gap: 24px;
+  margin: 0;
+}
+
+.nav {
+  cursor: pointer;
+  transition: background 0.3s ease;
+  margin: 0;
+  /* background: var(--color-bamboo); */
+  /* border: 1px solid var(--opacity-neutral-darkest-15); */
+  padding: 12px;
+  width: 48px;
+  height: 48px;
+  background: #e15d05;
+  border-radius: 0;
+  border: 1px solid #c44f04;
+}
+
+/* .nav:hover {
+  background: rgba(0, 0, 0, 0.4);
+} */
+
+.nav:hover,
+.nav:hover,
+.nav:focus,
+.nav:focus {
+  background: #ffffff;
+  border: 1px solid #00000026;
+}
+
+.nav:active,
+.nav:active {
+  background: #5a2502;
+  border: 1px solid #4d1f02;
+}
+
+.icon {
+  display: inline-block;
+  pointer-events: none;
+  vertical-align: middle;
+}
+
+.icon.active {
+  display: none;
+}
+
+.nav.is-active .icon.default {
+  display: none;
+}
+
+.nav.is-active .icon.active {
+  display: inline-block;
+}
+/* @media only screen and (min-width: 768px) {
+  .hero-container {
+    max-width: 768px;
+  }
+}
+@media only screen and (min-width: 1280px) {
+  .hero-slider,
+  .slider-controls {
+    max-width: 1280px;
+    width: 100%;
+    border-radius: 0;
+  }
+} */
+
+.header-row {
+  display: flex;
+  align-items: center; /* Вирівнює по вертикалі */
+  justify-content: space-between; /* Розміщує елементи по краях */
+  padding: 24px 0 32px 0;
+}
+
+.slider-controls {
+  display: flex;
+  gap: 24px; /* Відступ між кнопками */
+  margin: 0;
+}
+
+.header-row h1 {
+  font-family: var(--font-family);
+  font-weight: 600;
+  font-size: 52px;
+  line-height: 120%;
+  letter-spacing: -0.01em;
+  color: var(--color-scheme-1-text);
+  margin: 0;
+}
