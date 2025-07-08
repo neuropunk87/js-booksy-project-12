@@ -224,7 +224,7 @@ function renderBook(book) {
 
   return `
     <li class="books-item">
-      <img class="books-item__img" src="${book_image}" alt="${title}">
+      <img class="books-item__img" src="${book_image}" alt="${title}" loading="lazy">
       <div class="books-item__info">
         <h3 class="books-item__title">${getNewTitle(title, n)}</h3>
         <span class="books-item__price">$${price || '—'}</span>
