@@ -17,8 +17,10 @@ body {
 
 .location-content {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     flex-wrap: wrap;
+    align-items: flex-start;
+    gap: 0px;
     align-items: center;
     flex-direction: column;
     gap: 32px;
@@ -84,7 +86,6 @@ body {
     font-weight: 400;
     font-size: 16px;
     color: var(--color-muted);
-
 }
 
 .icon-preview svg {
@@ -149,9 +150,12 @@ body {
     }
 
     .location-content {
-       gap: 0px;
-       flex-direction: row;
-       align-items: flex-start;
+        gap: 0px;
+        flex-direction: row;
+        align-items: flex-start;
+        justify-content: space-between;
+        margin: 0 auto;
+        max-width: 704px;
     }
 }
 
@@ -159,7 +163,6 @@ body {
     .section-location {
         padding: 64px;
         margin-top: 64px;
-        margin-left: 64px;
     }
 
     .section-text {
@@ -175,5 +178,9 @@ body {
     .location-map {
         min-width: 1312px;
         height: 738px;
+    }
+
+    .location-content {
+        max-width: 1312px;
     }
 }
