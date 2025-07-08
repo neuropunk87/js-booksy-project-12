@@ -154,7 +154,7 @@
 }
 
 .books-item {
-  width: 343px;
+  max-width: 343px;
   display: flex;
   flex-direction: column;
   align-items: stretch;
