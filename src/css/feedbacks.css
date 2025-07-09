@@ -182,6 +182,9 @@
             padding: 64px 32px;
             min-width: 768px;   
         }
+    .feedback-list-item {
+        padding-bottom: 32px;
+    }
  }
 
 @media (min-width: 1440px) {
