@@ -13,20 +13,24 @@ function initSwiper() {
   const next = document.querySelector('.events-button-next');
   const paginationEl = document.querySelector('.swiper-pagination');
 
+  const slidesCount = container.querySelectorAll('.swiper-slide').length;
+  const maxSlidesPerView = 3;
+  const enableLoop = slidesCount > maxSlidesPerView;
+
   const swiper = new Swiper(container, {
     modules: [Navigation, Pagination, Autoplay],
     slidesPerView: 1,
     spaceBetween: 24,
     observer: true,
     observeParents: true,
-    loop: true,              
+    loop: enableLoop,
     autoplay: {
-      delay: 4000,             
-      disableOnInteraction: false, 
+      delay: 4000,
+      disableOnInteraction: false,
     },
     speed: 800,
     pagination: { el: paginationEl, clickable: true },
-    navigation: { nextEl: next, prevEl: prev }, 
+    navigation: { nextEl: next, prevEl: prev },
     breakpoints: {
       768: { slidesPerView: 2, spaceBetween: 24 },
       1440: { slidesPerView: 3, spaceBetween: 24 },
@@ -72,15 +76,14 @@ function initSwiper() {
 
 document.addEventListener('DOMContentLoaded', initSwiper);
 
-
 const registerButtons = document.querySelectorAll('.events-register');
 registerButtons.forEach(button => {
-    button.addEventListener('click', (event) => {
-        event.preventDefault();
-        const li = event.currentTarget.closest('.events-list-element');
-        const eventTitle = li.querySelector('.events-name').textContent.trim();
-        document.querySelector('.contact-modal-overlay').classList.add('open');
-        document.body.style.overflow = 'hidden';
-        document.querySelector('.contact-modal-event').textContent = eventTitle;
-    });
+  button.addEventListener('click', event => {
+    event.preventDefault();
+    const li = event.currentTarget.closest('.events-list-element');
+    const eventTitle = li.querySelector('.events-name').textContent.trim();
+    document.querySelector('.contact-modal-overlay').classList.add('open');
+    document.body.style.overflow = 'hidden';
+    document.querySelector('.contact-modal-event').textContent = eventTitle;
+  });
 });
