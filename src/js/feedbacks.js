@@ -1,36 +1,56 @@
-import Swiper from 'swiper';
-import { Navigation, Pagination, Keyboard } from 'swiper/modules';
+import Swiper, { Navigation, Pagination, Keyboard, Mousewheel, A11y } from 'swiper';
 
-import 'swiper/css';
-import 'swiper/css/navigation';
-import 'swiper/css/pagination';
+Swiper.use([Navigation, Pagination, Keyboard, Mousewheel, A11y]);
 
-Swiper.use([Navigation, Pagination, Keyboard]);
-
-const swiper = new Swiper('.swiper', {
+const swiper = new Swiper('.feedback-content', {
   slidesPerView: 1,
-  spaceBetween: 16,
+  spaceBetween: 24,
   loop: false,
-  keyboard: {
-    enabled: true,
-  },
   pagination: {
     el: '.swiper-pagination',
     clickable: true,
-    bulletClass: 'swiper-dot',
-    bulletActiveClass: 'active',
   },
   navigation: {
     nextEl: '.swiper-button-next',
     prevEl: '.swiper-button-prev',
-    disabledClass: 'swiper-button-disabled',
+  },
+  keyboard: {
+    enabled: true,
+    onlyInViewport: true,
+  },
+  mousewheel: {
+    forceToAxis: true,
+  },
+  a11y: {
+    enabled: true,
   },
   breakpoints: {
     768: {
       slidesPerView: 2,
+      spaceBetween: 24,
     },
-    1280: {
+    1440: {
       slidesPerView: 3,
-    },
-  },
+      spaceBetween: 24,
+    }
+  }
 });
+
+swiper.on('slideChange', () => {
+  const prevBtn = document.querySelector('.swiper-button-prev');
+  const nextBtn = document.querySelector('.swiper-button-next');
+
+  if (swiper.isBeginning) {
+    prevBtn.classList.add('is-disabled');
+  } else {
+    prevBtn.classList.remove('is-disabled');
+  }
+
+  if (swiper.isEnd) {
+    nextBtn.classList.add('is-disabled');
+  } else {
+    nextBtn.classList.remove('is-disabled');
+  }
+});
+
+swiper.emit('slideChange');
