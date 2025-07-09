@@ -75,6 +75,10 @@ font-weight: 400;
             white-space: nowrap;
 }
 
+.footer-btn:hover {
+    color: #fff;
+}
+
 .footer-note {
         font-weight: 400;
         font-size: 12px;

@@ -208,13 +208,15 @@
   border-radius: var(--radius);
   padding: 8px 0;
   margin-top: 0;
-  transition: background-color var(--transition);
+  transition: background-color var(--transition), transform 0.3s ease;
   cursor: pointer;
 }
 
 .books-item__btn:hover,
 .books-item__btn:focus {
   background-color: var(--color-secondary-hover);
+  transform: translateY(-3px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
 .books-section__show-more {
@@ -229,12 +231,14 @@
   border: none;
   display: block;
   cursor: pointer;
-  transition: background-color var(--transition);
+  transition: background-color var(--transition), transform 0.3s ease;
 }
 
 .books-section__show-more:hover,
 .books-section__show-more:focus {
   background-color: var(--color-primary-hover);
+  transform: translateY(-3px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
 /* Modal styles */

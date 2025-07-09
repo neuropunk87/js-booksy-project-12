@@ -60,7 +60,7 @@ a:hover {
 .cta-button {
   position: absolute;
   bottom: 16px;
-  background: #ff6f61;
+  background: var(--color-primary);
   color: white;
   text-decoration: none;
   padding: 4px 0;
@@ -72,13 +72,16 @@ a:hover {
   font-weight: 400;
   border: none;
   border-radius: 4px;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease, transform 0.3s ease;
   font-family: var(--font-family);
   font-size: 8px;
 }
 
 .cta-button:hover {
-  background-color: #e85c50;
+  color: #fff;
+  background-color: var(--color-primary-hover);
+  transform: translateY(-3px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
 .header-row {
@@ -114,14 +117,16 @@ a:hover {
   height: 48px;
   background: #e15d05;
   border: 1px solid #c44f04;
-  transition: background 0.3s ease;
+  transition: background 0.3s ease, transform 0.3s ease;
   border-radius: 0;
 }
 
 .nav:hover,
 .nav:focus {
-  background: #ffffff;
-  border: 1px solid #00000026;
+  background: transparent;
+  border: 1px solid rgba(11, 5, 0, 0.15);
+  transform: translateY(-3px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
 .nav:active {
