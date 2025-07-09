@@ -1,0 +1,327 @@
+/* === Базові стилі (Mobile First) === */
+a:hover {
+  text-decoration: none;
+}
+.hero-slider {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 343 / 199;
+  margin: 0 auto;
+  overflow: hidden;
+  border-radius: 8px;
+}
+
+.slide {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  opacity: 0;
+  transition: opacity 0.8s ease-in-out;
+}
+
+.slide.active {
+  opacity: 1;
+  z-index: 1;
+}
+
+.overlay {
+  position: relative;
+  height: 100%;
+  box-sizing: border-box;
+  color: #fff;
+  left: 16px;
+}
+
+.discount {
+  position: absolute;
+  bottom: 53px;
+  margin: 0;
+  font-family: var(--font-family);
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 140%;
+  letter-spacing: -0.01em;
+  color: var(--color-scheme-3-accent);
+}
+.ban-1,
+.ban-2 {
+  width: 172px;
+}
+
+.ban-3 {
+}
+.ban-3,
+.ban-4 {
+  width: 228px;
+}
+
+.cta-button {
+  position: absolute;
+  bottom: 16px;
+  background: #ff6f61;
+  color: white;
+  text-decoration: none;
+  padding: 4px 0;
+  width: 100%;
+  width: 117px;
+  height: 20px;
+  /* display: block; */
+  text-align: center;
+  font-weight: 400;
+  border: none;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+  font-family: var(--font-family);
+  font-size: 8px;
+}
+
+.cta-button:hover {
+  background-color: #e85c50;
+}
+
+.header-row {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
+  padding: 24px 0 32px 0;
+}
+
+.header-row h1 {
+  margin: 0;
+  font-family: var(--font-family);
+  font-weight: 600;
+  font-size: 40px;
+  line-height: 120%;
+  letter-spacing: -0.01em;
+  color: var(--color-scheme-1-text);
+}
+
+.slider-controls {
+  /* display: flex; */
+  display: none;
+  justify-content: flex-start;
+  gap: 16px;
+  margin: 0;
+}
+
+.nav {
+  cursor: pointer;
+  padding: 12px;
+  width: 48px;
+  height: 48px;
+  background: #e15d05;
+  border: 1px solid #c44f04;
+  transition: background 0.3s ease;
+  border-radius: 0;
+}
+
+.nav:hover,
+.nav:focus {
+  background: #ffffff;
+  border: 1px solid #00000026;
+}
+
+.nav:active {
+  background: #5a2502;
+  border: 1px solid #4d1f02;
+}
+
+.icon {
+  display: inline-block;
+  pointer-events: none;
+  vertical-align: middle;
+}
+
+.icon.active {
+  display: none;
+}
+
+.nav.is-active .icon.default {
+  display: none;
+}
+
+.nav.is-active .icon.active {
+  display: inline-block;
+}
+
+/* === Планшети (від 768px) === */
+@media (min-width: 768px) {
+  .hero-slider {
+    aspect-ratio: 704 / 274;
+    border-radius: 0;
+  }
+
+  .overlay {
+    left: 40px;
+  }
+
+  .ban-1 {
+    width: 274px;
+  }
+  .ban-2 {
+    width: 202px;
+  }
+  .ban-3,
+  .ban-4 {
+    width: 390px;
+  }
+
+  .discount {
+    font-size: 36px;
+    bottom: 80px;
+  }
+
+  .cta-button {
+    bottom: 32px;
+    width: 164px;
+    height: 32px;
+    font-size: 16px;
+  }
+
+  .header-row {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 24px 0 32px 0;
+  }
+
+  .header-row h1 {
+    font-size: 40px;
+  }
+
+  .slider-controls {
+    display: flex;
+    gap: 20px;
+  }
+}
+
+/* === Десктопи (від 1440px) === */
+@media (min-width: 1440px) {
+  .hero-slider {
+    width: 1312px;
+    height: 395px;
+    aspect-ratio: auto;
+    border-radius: 16px;
+  }
+
+  .overlay {
+    left: 56px;
+  }
+  .ban-1,
+  .ban-2 {
+    width: 392px;
+  }
+
+  .ban-3,
+  .ban-4 {
+    width: 561px;
+  }
+
+  .discount {
+    bottom: 116px;
+    font-size: 52px;
+    line-height: 120%;
+  }
+
+  .cta-button {
+    bottom: 56px;
+    width: 227px;
+    height: 40px;
+    font-size: 16px;
+    padding: 8px 0;
+  }
+
+  .header-row h1 {
+    font-size: 52px;
+  }
+
+  .slider-controls {
+    display: flex;
+    gap: 24px;
+    justify-content: flex-end;
+  }
+}
+
+/* === Адаптивні фонові зображення === */
+.banner-1 {
+  background-image: image-set(
+    url('/img/hero/pages-banner-1-mobile.jpg') 1x,
+    url('/img/hero/pages-banner-1-mobile-@2x.jpg') 2x
+  );
+}
+
+.banner-2 {
+  background-image: image-set(
+    url('/img/hero/pages-banner-2-mobile.jpg') 1x,
+    url('/img/hero/pages-banner-2-mobile-@2x.jpg') 2x
+  );
+}
+.banner-3 {
+  background-image: image-set(
+    url('/img/hero/pages-banner-3-mobile.jpg') 1x,
+    url('/img/hero/pages-banner-3-mobile-@2x.jpg') 2x
+  );
+}
+.banner-4 {
+  background-image: image-set(
+    url('/img/hero/pages-banner-4-mobile.jpg') 1x,
+    url('/img/hero/pages-banner-4-mobile-@2x.jpg') 2x
+  );
+}
+
+@media (min-width: 768px) {
+  .banner-1 {
+    background-image: image-set(
+      url('/img/hero/pages-banner-1-tablet.jpg') 1x,
+      url('/img/hero/pages-banner-1-tablet-@2x.jpg') 2x
+    );
+  }
+  .banner-2 {
+    background-image: image-set(
+      url('/img/hero/pages-banner-2-tablet.jpg') 1x,
+      url('/img/hero/pages-banner-2-tablet-@2x.jpg') 2x
+    );
+  }
+  .banner-3 {
+    background-image: image-set(
+      url('/img/hero/pages-banner-3-tablet.jpg') 1x,
+      url('/img/hero/pages-banner-3-tablet-@2x.jpg') 2x
+    );
+  }
+  .banner-4 {
+    background-image: image-set(
+      url('/img/hero/pages-banner-4-tablet.jpg') 1x,
+      url('/img/hero/pages-banner-4-tablet-@2x.jpg') 2x
+    );
+  }
+}
+
+@media (min-width: 1440px) {
+  .banner-1 {
+    background-image: image-set(
+      url('/img/hero/pages-banner-1.jpg') 1x,
+      url('/img/hero/pages-banner-1-@2x.jpg') 2x
+    );
+  }
+  .banner-2 {
+    background-image: image-set(
+      url('/img/hero/pages-banner-2.jpg') 1x,
+      url('/img/hero/pages-banner-2-@2x.jpg') 2x
+    );
+  }
+  .banner-3 {
+    background-image: image-set(
+      url('/img/hero/pages-banner-3.jpg') 1x,
+      url('/img/hero/pages-banner-3-@2x.jpg') 2x
+    );
+  }
+  .banner-4 {
+    background-image: image-set(
+      url('/img/hero/pages-banner-4.jpg') 1x,
+      url('/img/hero/pages-banner-4-@2x.jpg') 2x
+    );
+  }
+}
