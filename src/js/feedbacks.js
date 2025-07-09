@@ -1,8 +1,17 @@
-import Swiper, { Navigation, Pagination, Keyboard, Mousewheel, A11y } from 'swiper';
-
-Swiper.use([Navigation, Pagination, Keyboard, Mousewheel, A11y]);
+import Swiper from 'swiper';
+import {
+  Navigation,
+  Pagination,
+  Keyboard,
+  Mousewheel,
+  A11y,
+} from 'swiper/modules';
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
 
 const swiper = new Swiper('.feedback-content', {
+  modules: [Navigation, Pagination, Keyboard, Mousewheel, A11y],
   slidesPerView: 1,
   spaceBetween: 24,
   loop: false,
@@ -32,8 +41,8 @@ const swiper = new Swiper('.feedback-content', {
     1440: {
       slidesPerView: 3,
       spaceBetween: 24,
-    }
-  }
+    },
+  },
 });
 
 swiper.on('slideChange', () => {
