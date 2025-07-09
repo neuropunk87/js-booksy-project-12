@@ -1,0 +1,104 @@
+.loader {
+    width: 200px;
+    height: 140px;
+    background: var(--color-primary);
+    box-sizing: border-box;
+    position: relative;
+    border-radius: 8px;
+    perspective: 1000px;
+}
+
+.loader:before {
+    content: '';
+    position: absolute;
+    left: 10px;
+    right: 10px;
+    top: 10px;
+    bottom: 10px;
+    border-radius: 8px;
+    background: #F5F5F5 no-repeat;
+    background-size: 60px 10px;
+    background-image: linear-gradient(#ddd 100px, transparent 0),
+        linear-gradient(#ddd 100px, transparent 0),
+        linear-gradient(#ddd 100px, transparent 0),
+        linear-gradient(#ddd 100px, transparent 0),
+        linear-gradient(#ddd 100px, transparent 0),
+        linear-gradient(#ddd 100px, transparent 0);
+    background-position: 15px 30px, 15px 60px, 15px 90px, 105px 30px, 105px 60px,
+        105px 90px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
+}
+
+.loader:after {
+    content: '';
+    position: absolute;
+    width: calc(50% - 10px);
+    right: 10px;
+    top: 10px;
+    bottom: 10px;
+    border-radius: 8px;
+    background: #fff no-repeat;
+    background-size: 60px 10px;
+    background-image: linear-gradient(#ddd 100px, transparent 0),
+        linear-gradient(#ddd 100px, transparent 0),
+        linear-gradient(#ddd 100px, transparent 0);
+    background-position: 50% 30px, 50% 60px, 50% 90px;
+    transform: rotateY(0deg);
+    transform-origin: left center;
+    animation: paging 1s linear infinite;
+}
+
+@keyframes paging {
+    to {
+        transform: rotateY(-180deg);
+    }
+}
+
+.loader-booksy-title {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -48px;
+    width: 100%;
+    text-align: center;
+    font-family: var(--font-main);
+    font-weight: 700;
+    font-size: 2rem;
+    letter-spacing: .04em;
+    color: var(--color-primary);
+    text-shadow: 0 1px 12px #fceee6cc, 0 1px 9px #fff8e1bb;
+    opacity: 0;
+    transform: translateY(10px) scale(0.98);
+    animation: loaderBooksyTitleAppear 0.7s 0.1s forwards, loaderBooksyTitlePulse 1.7s 0.8s infinite alternate;
+    user-select: none;
+    pointer-events: none;
+}
+
+@keyframes loaderBooksyTitleAppear {
+    0% {
+        opacity: 0;
+        transform: translateY(14px) scale(0.97);
+    }
+
+    70% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+@keyframes loaderBooksyTitlePulse {
+    0% {
+        text-shadow: 0 1px 12px #fceee6cc, 0 1px 9px #fff8e1bb;
+        opacity: 1;
+    }
+
+    100% {
+        text-shadow: 0 1px 22px #ffd9b7bb, 0 1px 20px #fff8e1;
+        opacity: 0.83;
+    }
+}
