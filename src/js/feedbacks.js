@@ -1,16 +1,17 @@
 import Swiper from 'swiper';
 import { Navigation, Pagination, Keyboard, Mousewheel } from 'swiper/modules';
 
-const pagEl = document.querySelector('.swiper-pagination');
+const pagEl = document.querySelector('.swiper-pagination-feedback');
 const prevBtn = document.querySelector('.feedback-button-prev');
 const nextBtn = document.querySelector('.feedback-button-next');
 
-const swiper = new Swiper('.swiper', {
+const swiper = new Swiper('.swiper.feedback-content', {
   modules: [Navigation, Pagination, Keyboard, Mousewheel],
   slidesPerView: 1,
   spaceBetween: 16,
   observer: true,
-    observeParents: true,
+  observeParents: true,
+  speed: 800,
   breakpoints: {
     768: { 
       slidesPerView: 2,
@@ -28,7 +29,7 @@ const swiper = new Swiper('.swiper', {
   },
 
   pagination: {
-    el: '.swiper-pagination',
+    el: '.swiper-pagination-feedback',
     clickable: true,
   },
 
