@@ -120,11 +120,14 @@ header {
   padding: 0;
   margin: 0;
 }
+
 .close-menu:hover,
 .menu-toggle:hover {
-  background: linear-gradient(135deg, var(--color-secondary-hover), #00d4ff);
-  transition: opacity 0.5s ease;
+  background: transparent;
+  transform: none;
+  box-shadow: none;
 }
+
 .mobile-nav-links {
   list-style: none;
   padding: 16px 16px 43px 16px;
@@ -186,4 +189,10 @@ body.menu-open {
     margin-top: 0;
     gap: 2rem;
   }
+
+  .close-menu:hover,
+.menu-toggle:hover {
+  background: linear-gradient(135deg, var(--color-secondary-hover), #00d4ff);
+  transition: opacity 0.5s ease;
+}
 }

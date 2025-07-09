@@ -336,7 +336,8 @@ contactForm.addEventListener("submit", function (event) {
             iziToast.error({
                 title: 'Invalid Input',
                 message: `${input.name} is not valid.`,
-                position: 'topRight',
+                position: 'bottomCenter',
+                closeOnClick: true,
             });
         } else {
             input.classList.remove("invalid");
@@ -347,7 +348,8 @@ contactForm.addEventListener("submit", function (event) {
         iziToast.success({
             title: 'Valid Input',
             message: `Registered successfully.`,
-            position: 'topRight',
+            position: 'bottomCenter',
+            closeOnClick: true,
         });
         contactForm.reset();
     }

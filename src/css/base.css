@@ -95,6 +95,14 @@ a:focus {
   text-decoration: underline;
 }
 
+a:active {
+  opacity: 0.8;
+}
+
+a:disabled {
+  opacity: 0.2;
+}
+
 /* Buttons */
 button,
 input[type='button'],
@@ -130,6 +138,11 @@ input[type='submit'] {
 
 .btn-secondary:active {
   background: var(--color-secondary-active);
+}
+
+button:disabled,
+.btn-secondary:disabled {
+  opacity: 0.2;
 }
 
 button:hover,
