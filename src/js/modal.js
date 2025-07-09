@@ -98,7 +98,7 @@ addToCart.addEventListener('click', () => {
   if (counter.textContent === '0' || modalCount === 0) {
     iziToast.error({
       message: 'Take the product firstly!',
-      position: 'bottomCenter',
+      position: 'topCenter',
       backgroundColor: 'var(--color-invalid)',
       messageColor: 'var(--color-surface-light)',
       closeOnClick: true,
@@ -112,7 +112,7 @@ addToCart.addEventListener('click', () => {
   productAmount.innerHTML = `Total amount of this product in cart: ${updatedCount}`;
   iziToast.success({
     message: `Added to cart: ${modalCount} (In cart: ${updatedCount} of this product)`,
-    position: 'bottomCenter',
+    position: 'topCenter',
     backgroundColor: 'var(--color-primary)',
     messageColor: 'var(--color-surface-light)',
     closeOnClick: true,
@@ -126,7 +126,7 @@ buyNow.addEventListener('click', () => {
     iziToast.error({
       message: 'Take the product firstly!',
       closeOnClick: true,
-      position: 'bottomCenter',
+      position: 'topCenter',
       backgroundColor: 'var(--color-invalid)',
       messageColor: 'var(--color-surface-light)',
     });
@@ -135,7 +135,7 @@ buyNow.addEventListener('click', () => {
   iziToast.success({
     message: 'Thanks for purchasing!',
     closeOnClick: true,
-    position: 'bottomCenter',
+    position: 'topCenter',
     backgroundColor: 'var(--color-primary)',
     messageColor: 'var(--color-surface-light)',
   });
@@ -337,7 +337,7 @@ contactForm.addEventListener('submit', function (event) {
       input.classList.add('invalid');
       iziToast.error({
         message: `${input.name} is not valid.`,
-        position: 'bottomCenter',
+        position: 'topCenter',
         closeOnClick: true,
         backgroundColor: 'var(--color-invalid)',
         messageColor: 'var(--color-surface-light)',
@@ -350,7 +350,7 @@ contactForm.addEventListener('submit', function (event) {
   if (isValid) {
     iziToast.success({
       message: `Registered successfully.`,
-      position: 'bottomCenter',
+      position: 'topCenter',
       closeOnClick: true,
       backgroundColor: 'var(--color-primary)',
       messageColor: 'var(--color-surface-light)',

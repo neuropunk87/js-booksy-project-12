@@ -1,8 +1,8 @@
 /* Header */
-header {
-  /* background-color: #fff;
-  border-bottom: 1px solid #ddd; */
-}
+/* header {
+  background-color: #fff;
+  border-bottom: 1px solid #ddd;
+} */
 
 .navbar {
   /* display: flex;
@@ -137,6 +137,7 @@ header {
   align-items: center;
   justify-content: center;
 }
+
 /* .mobile-nav-links li a:hover {
   background: linear-gradient(135deg, var(--color-secondary-hover), #00d4ff);
   transition: opacity 0.5s ease;
@@ -175,6 +176,7 @@ body.menu-open {
 
 /* Tablet and up */
 @media (min-width: 768px) {
+
   .menu-toggle,
   .mobile-menu,
   .backdrop {
@@ -191,8 +193,8 @@ body.menu-open {
   }
 
   .close-menu:hover,
-.menu-toggle:hover {
-  background: linear-gradient(135deg, var(--color-secondary-hover), #00d4ff);
-  transition: opacity 0.5s ease;
-}
+  .menu-toggle:hover {
+    background: linear-gradient(135deg, var(--color-secondary-hover), #00d4ff);
+    transition: opacity 0.5s ease;
+  }
 }

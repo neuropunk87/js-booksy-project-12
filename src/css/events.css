@@ -35,8 +35,8 @@
   padding: 0 12px;
   flex-shrink: 0;
   display: flex;
-    flex-direction: column;
-    height: 100%;
+  flex-direction: column;
+  height: 100%;
 }
 
 .events-image-container {
@@ -56,12 +56,13 @@
   flex-grow: 1;
   min-height: 172px;
 }
+
 .events-name {
   font-weight: 400;
   font-size: 24px;
   line-height: 1.4;
   letter-spacing: -0.01em;
-  color:var(--color-muted);
+  color: var(--color-muted);
   margin-bottom: 0;
 }
 
@@ -97,17 +98,19 @@
 
 .events-register:hover,
 .events-register:focus {
-  color:var(--color-primary);
-  background-color: inherit;
+  color: var(--color-muted);
+  background-color: var(--color-secondary-hover);
 }
 
 .events-register:active {
   transform: scale(0.95);
 }
+
 .events-register svg use {
   fill: var(--color-muted);
   transition: fill 0.2s ease;
 }
+
 .events-register:hover svg use,
 .events-register:focus svg use {
   fill: var(--color-primary);

@@ -14,7 +14,7 @@ form.addEventListener('submit', function (event) {
     iziToast.error({
       message: 'Please enter a valid email address.',
       closeOnClick: true,
-      position: 'topRight',
+      position: 'topCenter',
       backgroundColor: 'var(--color-invalid)',
       messageColor: 'var(--color-surface-light)',
     });
@@ -25,7 +25,7 @@ form.addEventListener('submit', function (event) {
   iziToast.success({
     message: 'Thank you for signing up!',
     closeOnClick: true,
-    position: 'topRight',
+    position: 'topCenter',
     backgroundColor: 'var(--color-primary)',
     messageColor: 'var(--color-surface-light)',
   });

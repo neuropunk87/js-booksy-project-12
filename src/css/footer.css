@@ -24,16 +24,16 @@
 .footer-link {
     color: #0b0500;
     font-weight: 400;
-        font-size: 16px;
-        line-height: 24px;
+    font-size: 16px;
+    line-height: 24px;
 }
 
 .form-title {
     font-weight: 600;
-        font-size: 16px;
-        line-height: 24px;
-        color: #0b0500;
-        margin-bottom: 16px;
+    font-size: 16px;
+    line-height: 24px;
+    color: #0b0500;
+    margin-bottom: 16px;
 }
 
 .footer-form {
@@ -48,31 +48,32 @@
 
 .footer-form-input {
     border: 1px solid rgba(11, 5, 0, 0.15);
-        border-radius: 4px;
-        padding: 8px 12px;
-        width: 100%;
-        height: 48px;
-    background-color: rgba(11, 5, 0, 0.05);}
+    border-radius: 4px;
+    padding: 8px 12px;
+    width: 100%;
+    height: 48px;
+    background-color: rgba(11, 5, 0, 0.05);
+}
 
-    .footer-form-input::placeholder {
-font-weight: 400;
+.footer-form-input::placeholder {
+    font-weight: 400;
     font-size: 16px;
     line-height: 24px;
     color: rgba(11, 5, 0, 0.6);
-    }
+}
 
 .footer-btn {
     border: 1px solid #0b0500;
-        border-radius: 4px;
-        padding: 12px 24px;
-        width: 106px;
-        height: 48px;
-            font-weight: 400;
-            font-size: 16px;
-            line-height: 24px;
-            color: #0b0500;
-            background-color: transparent;
-            white-space: nowrap;
+    border-radius: 4px;
+    padding: 12px 24px;
+    width: 106px;
+    height: 48px;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    color: #0b0500;
+    background-color: transparent;
+    white-space: nowrap;
 }
 
 .footer-btn:hover {
@@ -80,48 +81,51 @@ font-weight: 400;
 }
 
 .footer-note {
-        font-weight: 400;
-        font-size: 12px;
-        line-height: 18px;
-        color: #0b0500;
-        margin-bottom: 80px;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 18px;
+    color: #0b0500;
+    margin-bottom: 80px;
 }
 
 .line {
     border: 1px solid rgba(255, 255, 255, 0.2);
-        width: 100%;
-        height: 0px;
-        margin:0 auto 32px auto;
-        
+    width: 100%;
+    height: 0px;
+    margin: 0 auto 32px auto;
+
 }
 
 .footer-end {
-        font-weight: 400;
-        font-size: 14px;
-        line-height: 21px;
-        color: #0b0500;
-        text-align: center;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 21px;
+    color: #0b0500;
+    text-align: center;
 }
+
 /* Styles for Tablet devices */
 @media only screen and (min-width: 768px) {
-  .footer-list {
-    flex-direction: row;
-    justify-content: center;
-  }
+    .footer-list {
+        flex-direction: row;
+        justify-content: center;
+    }
 
-  .form-wrap {
-    display: flex;
-    flex-direction: column;
-align-items: flex-start;
-margin: 0 auto;
-width: 400px;
-  }
-  .footer-form-input {
-    width: 278px;
-  }
-  .line {
-    width: 640px;
-  }
+    .form-wrap {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        margin: 0 auto;
+        width: 400px;
+    }
+
+    .footer-form-input {
+        width: 278px;
+    }
+
+    .line {
+        width: 640px;
+    }
 }
 
 /* Styles for Desktop devices */
@@ -131,13 +135,16 @@ width: 400px;
         flex-direction: row;
         justify-content: space-between;
     }
-.form-wrap {
-    margin: 0;
-}
-.footer-logo {
-    margin: 0 0 32px 0;
-}
-.line {
-    width: 1312px;
-}
+
+    .form-wrap {
+        margin: 0;
+    }
+
+    .footer-logo {
+        margin: 0 0 32px 0;
+    }
+
+    .line {
+        width: 1312px;
+    }
 }
