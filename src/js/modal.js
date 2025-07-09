@@ -50,7 +50,7 @@ window.openBookModal = function (book) {
   if (!itemCount) {
     productAmount.innerHTML = '';
   } else {
-    productAmount.innerHTML = `Загальна кількість товару в корзині: ${localStorage.getItem(
+    productAmount.innerHTML = `Total amount of this product in cart: ${localStorage.getItem(
       bookName.textContent
     )}`;
   }
@@ -97,10 +97,10 @@ bookModal.addEventListener('click', event => {
 addToCart.addEventListener('click', () => {
   if (counter.textContent === '0' || modalCount === 0) {
     iziToast.error({
-      message: 'Спочатку візьміть товар',
+      message: 'Take the product firstly!',
       position: 'bottomCenter',
       backgroundColor: 'var(--color-invalid)',
-      messageColor: 'white',
+      messageColor: 'var(--color-surface-light)',
       closeOnClick: true,
     });
     return;
@@ -109,12 +109,12 @@ addToCart.addEventListener('click', () => {
   const updatedCount = parseInt(itemCount) + modalCount;
   localStorage.setItem(bookName.textContent, updatedCount);
   // Функціонал отримання інформації про вміст товару в корзині
-  productAmount.innerHTML = `Загальна кількість товару в корзині: ${updatedCount}`;
+  productAmount.innerHTML = `Total amount of this product in cart: ${updatedCount}`;
   iziToast.success({
-    message: `Додано в корзину: ${modalCount} (Цього товару в корзині: ${updatedCount})`,
+    message: `Added to cart: ${modalCount} (In cart: ${updatedCount} of this product)`,
     position: 'bottomCenter',
     backgroundColor: 'var(--color-primary)',
-    messageColor: 'white',
+    messageColor: 'var(--color-surface-light)',
     closeOnClick: true,
   });
 });
@@ -124,20 +124,20 @@ buyNow.addEventListener('click', () => {
   const storedCount = parseInt(localStorage.getItem(bookName.textContent)) || 0;
   if (storedCount === 0) {
     iziToast.error({
-      message: 'Спочатку візьміть товар',
+      message: 'Take the product firstly!',
       closeOnClick: true,
       position: 'bottomCenter',
       backgroundColor: 'var(--color-invalid)',
-      messageColor: 'white',
+      messageColor: 'var(--color-surface-light)',
     });
     return;
   }
   iziToast.success({
-    message: 'Дякуємо за покупку!',
+    message: 'Thanks for purchasing!',
     closeOnClick: true,
     position: 'bottomCenter',
     backgroundColor: 'var(--color-primary)',
-    messageColor: 'white',
+    messageColor: 'var(--color-surface-light)',
   });
 });
 
@@ -336,10 +336,11 @@ contactForm.addEventListener('submit', function (event) {
       isValid = false;
       input.classList.add('invalid');
       iziToast.error({
-        title: 'Invalid Input',
         message: `${input.name} is not valid.`,
         position: 'bottomCenter',
         closeOnClick: true,
+        backgroundColor: 'var(--color-invalid)',
+        messageColor: 'var(--color-surface-light)',
       });
     } else {
       input.classList.remove('invalid');
@@ -348,10 +349,11 @@ contactForm.addEventListener('submit', function (event) {
 
   if (isValid) {
     iziToast.success({
-      title: 'Valid Input',
       message: `Registered successfully.`,
       position: 'bottomCenter',
       closeOnClick: true,
+      backgroundColor: 'var(--color-primary)',
+      messageColor: 'var(--color-surface-light)',
     });
     contactForm.reset();
   }

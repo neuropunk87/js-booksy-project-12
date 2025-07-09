@@ -12,23 +12,22 @@ form.addEventListener('submit', function (event) {
 
   if (!pattern.test(email)) {
     iziToast.error({
-      title: 'Error',
       message: 'Please enter a valid email address.',
       closeOnClick: true,
       position: 'topRight',
       backgroundColor: 'var(--color-invalid)',
-      messageColor: 'white',
+      messageColor: 'var(--color-surface-light)',
     });
     return;
   }
 
   localStorage.setItem('userEmail', email);
   iziToast.success({
-    title: 'Success',
     message: 'Thank you for signing up!',
     closeOnClick: true,
     position: 'topRight',
     backgroundColor: 'var(--color-primary)',
-    messageColor: 'white',
+    messageColor: 'var(--color-surface-light)',
   });
+  input.value = '';
 });
