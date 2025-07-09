@@ -3,17 +3,17 @@
     position: fixed;
     top: 0;
     left: 0;
-    background: rgba(0, 0, 0, 0.25);
+    background: var(--color-bg-modal-overlay);
     width: 100%;
-     height: 100%;
-     z-index: 999;
-     display: flex;
-     justify-content: center;
-     align-items: center;
-     transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1), visibility 250ms cubic-bezier(0.4, 0, 0.2, 1);
-     opacity: 0;
-     pointer-events: none;
-     padding: 32px 16px;
+    height: 100%;
+    z-index: 999;
+    display: flex;
+    justify-content: center;
+    transition: opacity 250ms var(--cubic), visibility 250ms var(--cubic);
+    opacity: 0;
+    pointer-events: none;
+    padding: 32px 16px;
+    overflow-y: auto;
 }
 
 .open {
@@ -50,6 +50,12 @@
     background: transparent;
 }
 
+.book-modal-img {
+    border-radius: 8px;
+    margin-bottom: 24px;
+    height: 100%;
+}
+
 .book-info-box {
     display: flex;
     gap: 8px;
@@ -61,39 +67,50 @@
     display: flex;
     gap: 8px;
     margin-bottom: 8px;
+    align-items: center;
 }
 
 .counter-btn {
-    color:black;
+    color: black;
     padding: 8px 12px;
     margin: 0;
 }
 
 .counter {
-    border: 1px solid rgba(11, 5, 0, 0.15);
+    border: 1px solid var(--color-border-modal);
     border-radius: 4px;
     padding: 8px 12px;
-    background: rgba(11, 5, 0, 0.05);
+    background: var(--color-bg-modal);
     display: flex;
     align-items: center;
     justify-content: center;
     width: 40px;
     font-weight: 400;
-font-size: 16px;
+    font-size: 16px;
 
-/* line-height: 24px; */ 
-line-height: 150%;
-text-align: center;
+    /* line-height: 24px; */
+    line-height: 150%;
+    text-align: center;
+}
+
+.prod-count {
+    margin-bottom: 0;
+}
+
+.modal-btns {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    margin-bottom: 32px;
 }
 
 .add-btn {
     width: 100%;
-    margin-bottom: 24px;
+    ;
 }
 
 .book-modal-buy-btn {
     width: 100%;
-    margin-bottom: 32px;
 }
 
 .iziToast {
@@ -101,7 +118,7 @@ text-align: center;
 }
 
 .iziToast-close {
-    margin: 0 !important; 
+    margin: 0 !important;
 }
 
 .iziToast::after {
@@ -110,11 +127,12 @@ text-align: center;
 
 .ac {
     background-color: transparent !important;
+    margin: 0 !important;
 }
 
 .ac .ac-trigger {
     font: var(--font-main) !important;
-    border-top: 1px solid rgba(11, 5, 0, 0.15) !important;
+    border-top: 1px solid var(--color-border-modal) !important;
     background-color: transparent !important;
     color: var(--color-muted) !important;
     width: 100% !important;
@@ -125,10 +143,17 @@ text-align: center;
     box-shadow: none !important;
     border-radius: 0 !important;
     font-weight: 600 !important;
-font-size: 18px !important;
+    font-size: 18px !important;
 
-/* line-height: 27px; */ 
-line-height: 150% !important;
+    /* line-height: 27px; */
+    line-height: 150% !important;
+    transition: none !important;
+}
+
+
+
+.ac:last-child {
+    border-bottom: 1px solid var(--color-border-modal) !important
 }
 
 /* .ac .ac-trigger::after {
@@ -136,7 +161,7 @@ line-height: 150% !important;
     background-image: url('../public/sprite.svg#smooth-arrow-down');
     background-size: contain;
     background-repeat: no-repeat;
-  fill: #0B0500;
+  fill: var(--color-muted);
   text-align: center;
   width: 15px;
   transform: translate(0, -50%);
@@ -153,11 +178,12 @@ line-height: 150% !important;
 .ac-trigger:active,
 .ac-trigger:focus {
     background: transparent !important;
+    transform: none;
 }
 
 /* .ac.is-active > .ac-header .ac-trigger::after {
   content: url('../public/sprite.svg#smooth-arrow-up');
-  fill: #0B0500;
+  fill: var(--color-muted);
 } */
 
 .ac .ac-trigger .trigger-icon {
@@ -173,9 +199,184 @@ line-height: 150% !important;
     height: 24px;
 }
 
+@media only screen and (min-width: 768px) {
+    .book-modal {
+        max-width: 704px;
+        flex-direction: row;
+        gap: 24px;
+    }
 
+    .counter-box {
+        margin-bottom: 24px;
+    }
+}
 
+@media only screen and (min-width: 1440px) {
+    .book-modal {
+        max-width: 1300px;
+    }
+
+    .modal-btns {
+        flex-direction: row;
+        width: 642px;
+    }
+
+    .book-modal-img {
+        margin-bottom: 0;
+    }
+
+    .counter-box {
+        margin-bottom: 16px;
+    }
+}
 
 /* #endregion BV Book Modal */
 
 
+/* **************************************************************************** */
+
+
+/* #region Contact Modal */
+textarea {
+    resize: none;
+}
+
+.contact-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: var(--color-bg-modal-overlay);
+    width: 100%;
+    height: 100%;
+    z-index: 999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: opacity 250ms var(--cubic), visibility 250ms var(--cubic);
+    opacity: 0;
+    pointer-events: none;
+    padding: 32px 16px;
+}
+
+.open {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.contact-modal {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    border-radius: 16px;
+    padding: 64px 16px;
+    width: 100%;
+    max-width: 343px;
+    background-color: var(--color-bg);
+}
+
+.contact-modal-close {
+    position: absolute;
+    top: 24px;
+    right: 24px;
+    background: none;
+    outline: none;
+    border: none;
+    background-color: transparent;
+    box-shadow: none;
+    padding: 0;
+    margin: 0;
+}
+
+.contact-modal-close:hover,
+.contact-modal-close:focus {
+    background: transparent;
+}
+
+.contact-modal-header {
+    font-weight: 600;
+    color: var(--color-muted);
+    font-size: 48px;
+    line-height: 120%;
+    letter-spacing: -0.01em;
+    text-align: center;
+    margin-bottom: 16px;
+}
+
+.contact-modal-event {
+    font-weight: 400;
+    color: var(--color-muted);
+    font-size: 24px;
+    line-height: 140%;
+    letter-spacing: -0.01em;
+    text-align: center;
+    margin-bottom: 48px;
+}
+
+.contact-modal-form {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.contact-form-label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 150%;
+}
+
+.contact-form-input::placeholder {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 150%;
+    color: rgba(0, 0, 0, 0.6);
+    transition: color 250ms var(--cubic);
+}
+
+.contact-form-input {
+    height: 40px;
+    width: 100%;
+    padding: 8px 12px;
+    border-radius: 8px;
+    color: var(--color-muted);
+    border: 1px solid var(--color-border-modal);
+    background-color: var(--color-bg-modal);
+    transition: border-color 250ms var(--cubic),
+        color 250ms var(--cubic);
+}
+
+textarea.contact-form-input {
+    height: 180px;
+}
+
+.contact-form-button {
+    align-self: center;
+}
+
+.invalid {
+    border-color: var(--color-invalid);
+    color: var(--color-invalid);
+}
+
+@media screen and (min-width: 768px) {
+    .contact-modal {
+        width: 708px;
+        max-width: 708px;
+        padding: 64px 32px;
+    }
+
+    .contact-form-button {
+        width: 342px;
+    }
+}
+
+@media screen and (min-width: 1440px) {
+    .contact-modal {
+        width: 866px;
+        max-width: 866px;
+        padding: 64px 64px;
+    }
+}
+
+/* #endregion Contact Modal */

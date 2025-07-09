@@ -1,0 +1,198 @@
+/* Header */
+header {
+  /* background-color: #fff;
+  border-bottom: 1px solid #ddd; */
+}
+
+.navbar {
+  /* display: flex;
+  justify-content: space-between;
+  align-items: center; */
+  /* padding: 1rem 4rem; */
+  flex-wrap: wrap;
+  padding: 16px 0;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.menu-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  border: none;
+  cursor: pointer;
+  width: 48px;
+  height: 48px;
+  padding: 0;
+}
+
+.nav-links {
+  display: none;
+  flex-direction: column;
+  width: 100%;
+  margin-top: 1rem;
+  list-style: none;
+  gap: 1rem;
+}
+
+.nav-links li a {
+  text-decoration: none;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 150%;
+  color: var(--color-scheme-1-text);
+
+  transition: background 0.5s ease, box-shadow 0.5s ease;
+  position: relative;
+  z-index: 0;
+  overflow: hidden;
+}
+
+/* Градієнтний фон при наведенні */
+.nav-links li a::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, var(--color-secondary-hover), #00d4ff);
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  z-index: -1;
+}
+
+/* Ховер ефект: плавна поява градієнта */
+.nav-links li a:hover::before {
+  opacity: 1;
+}
+
+/* Щоб градієнт не затирав текст */
+.nav-links li a:hover {
+  color: #fff;
+}
+
+/* Mobile Menu */
+.mobile-menu {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  height: 100%;
+  background: #fff;
+  z-index: 999;
+  display: none;
+  flex-direction: column;
+
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  /* width: 375px;
+  height: 433px; */
+  background: #fceee6;
+}
+
+.mobile-menu.active {
+  display: flex;
+  /* transform: translateY(0); */
+  opacity: 1;
+}
+
+.mobile-menu-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 8px 12px 8px 20px;
+}
+
+.close-menu {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  border: none;
+  cursor: pointer;
+  width: 48px;
+  height: 48px;
+  padding: 0;
+  margin: 0;
+}
+
+.close-menu:hover,
+.menu-toggle:hover {
+  background: transparent;
+  transform: none;
+  box-shadow: none;
+}
+
+.mobile-nav-links {
+  list-style: none;
+  padding: 16px 16px 43px 16px;
+  flex-direction: column;
+  gap: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+/* .mobile-nav-links li a:hover {
+  background: linear-gradient(135deg, var(--color-secondary-hover), #00d4ff);
+  transition: opacity 0.5s ease;
+  color: #fff;
+} */
+.mobile-nav-links li a {
+  text-decoration: none;
+  color: #0b0500;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 150%;
+}
+
+/* Backdrop */
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease;
+  z-index: 998;
+}
+
+.backdrop.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+body.menu-open {
+  overflow: hidden;
+}
+
+/* Tablet and up */
+@media (min-width: 768px) {
+  .menu-toggle,
+  .mobile-menu,
+  .backdrop {
+    display: none !important;
+  }
+
+  .nav-links {
+    display: flex !important;
+    flex-direction: row;
+    justify-content: flex-end;
+    width: auto;
+    margin-top: 0;
+    gap: 2rem;
+  }
+
+  .close-menu:hover,
+.menu-toggle:hover {
+  background: linear-gradient(135deg, var(--color-secondary-hover), #00d4ff);
+  transition: opacity 0.5s ease;
+}
+}

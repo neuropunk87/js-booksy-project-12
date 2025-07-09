@@ -3,7 +3,6 @@ import { Navigation, Pagination, Keyboard, Mousewheel } from 'swiper/modules';
 
 const swiper = new Swiper('.swiper', {
   modules: [Navigation, Pagination, Keyboard, Mousewheel],
-
   slidesPerView: 1,
   spaceBetween: 16,
 
@@ -54,6 +53,7 @@ const swiper = new Swiper('.swiper', {
         nextBtn.classList.remove('is-disabled');
       }
     },
+
     afterInit: function () {
       const prevBtn = document.querySelector('.feedback-button-prev');
       const nextBtn = document.querySelector('.feedback-button-next');
