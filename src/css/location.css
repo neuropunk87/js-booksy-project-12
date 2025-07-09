@@ -19,7 +19,6 @@ body {
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
-    align-items: center;
     flex-direction: column;
     gap: 32px;
 }
@@ -43,6 +42,7 @@ body {
     color: var(--color-muted);
     line-height: 1.5;
     max-width: 343px;
+    margin-bottom: 0;
 }
 
 .contact-column {
@@ -51,10 +51,6 @@ body {
     justify-content: flex-start;
     flex-direction: column;
     gap: 24px;
-    padding: 8px 0px;
-    width: 343px;
-    height: 244px;
-    margin-bottom: 32px;
 }
 
 .contact-list {
@@ -63,7 +59,7 @@ body {
     color: var(--color-muted);
 }
 
-.contact-blocks {
+.contact-list li:not(:last-child) {
     margin-bottom: 24px;
 }
 
@@ -109,14 +105,9 @@ body {
     margin-top: 8px;
 }
 
-.map-embed {
-    margin-top: 32px;
-    margin-bottom: 64px;
-}
-
 .location-map {
-    min-width: 300px;
-    width: 343px;
+    width: 100%;
+    max-width: 343px;
     height: 395px;
 }
 
@@ -124,6 +115,7 @@ body {
     display: flex;
     justify-content: center;
     width: 100%;
+    margin-top: 32px;
 }
 
 @media screen and (min-width: 768px) {
@@ -137,11 +129,9 @@ body {
 
     }
 
+    .text-column,
     .contact-column {
-        padding: 8px 0px;
         width: 336px;
-        height: 244px;
-        margin-bottom: 80px;
     }
 
     .location-map {
@@ -149,17 +139,22 @@ body {
     }
 
     .location-content {
-       gap: 0px;
-       flex-direction: row;
-       align-items: flex-start;
+        flex-direction: row;
+        align-items: flex-start;
+    }
+
+    .map-container {
+        margin-top: 80px;
     }
 }
 
 @media screen and (min-width: 1440px) {
     .section-location {
         padding: 64px;
-        margin-top: 64px;
-        margin-left: 64px;
+    }
+
+    .location-content {
+        gap: 80px;
     }
 
     .section-text {
@@ -167,13 +162,20 @@ body {
         max-width: 732px;
     }
 
+    .text-column {
+        width: 732px;
+    }
+
     .contact-column {
         width: 500px;
-        height: 244px;
     }
 
     .location-map {
         min-width: 1312px;
         height: 738px;
+    }
+
+    .map-container {
+        padding-bottom: 42px;
     }
 }

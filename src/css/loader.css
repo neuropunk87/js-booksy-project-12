@@ -53,3 +53,52 @@
         transform: rotateY(-180deg);
     }
 }
+
+.loader-booksy-title {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -48px;
+    width: 100%;
+    text-align: center;
+    font-family: var(--font-main);
+    font-weight: 700;
+    font-size: 2rem;
+    letter-spacing: .04em;
+    color: var(--color-primary);
+    text-shadow: 0 1px 12px #fceee6cc, 0 1px 9px #fff8e1bb;
+    opacity: 0;
+    transform: translateY(10px) scale(0.98);
+    animation: loaderBooksyTitleAppear 0.7s 0.1s forwards, loaderBooksyTitlePulse 1.7s 0.8s infinite alternate;
+    user-select: none;
+    pointer-events: none;
+}
+
+@keyframes loaderBooksyTitleAppear {
+    0% {
+        opacity: 0;
+        transform: translateY(14px) scale(0.97);
+    }
+
+    70% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+@keyframes loaderBooksyTitlePulse {
+    0% {
+        text-shadow: 0 1px 12px #fceee6cc, 0 1px 9px #fff8e1bb;
+        opacity: 1;
+    }
+
+    100% {
+        text-shadow: 0 1px 22px #ffd9b7bb, 0 1px 20px #fff8e1;
+        opacity: 0.83;
+    }
+}
