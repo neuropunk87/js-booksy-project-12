@@ -31,7 +31,7 @@ function capitalizeFirst(str) {
 // Відкриття модалки (з використанням books.js)
 window.openBookModal = function (book) {
   if (!bookModal) return;
-  
+
   // Оновлення даних модалки
   bookImg.src = book.book_image;
   bookImg.alt = book.title;
@@ -48,9 +48,12 @@ window.openBookModal = function (book) {
   const itemCount = localStorage.getItem(bookName.textContent) || 0;
   // Перевірка на наявність продукту у корзині
   if (!itemCount) {
-    productAmount.innerHTML = ''; 
-  } else
-  {productAmount.innerHTML = `Загальна кількість товару в корзині: ${localStorage.getItem(bookName.textContent)}`}
+    productAmount.innerHTML = '';
+  } else {
+    productAmount.innerHTML = `Загальна кількість товару в корзині: ${localStorage.getItem(
+      bookName.textContent
+    )}`;
+  }
 };
 
 // Додавання та віднімання кількості товару
@@ -63,15 +66,15 @@ counterReduce.addEventListener('click', () => {
   if (modalCount === 0) {
     return;
   }
-  modalCount--
+  modalCount--;
   counter.textContent = modalCount;
 });
 
 // Функціонал закриття модалки (кліком по іконці, за межами модалки та натисканням Esc)
 const modalClose = () => {
   bookModal.classList.remove('open');
-  document.body.style.overflow = ''
-}
+  document.body.style.overflow = '';
+};
 bookModalClose.addEventListener('click', () => {
   modalClose();
 });
@@ -92,12 +95,12 @@ bookModal.addEventListener('click', event => {
 
 // Функціонал додавання товару до корзини (незалежно від кількості товару на лічильнику (якщо не 0))
 addToCart.addEventListener('click', () => {
-  if(counter.textContent === '0' || modalCount === 0) {
+  if (counter.textContent === '0' || modalCount === 0) {
     iziToast.error({
       message: 'Спочатку візьміть товар',
       position: 'bottomCenter',
-      backgroundColor: '#ad0000',
-      messageColor: "white",
+      backgroundColor: 'var(--color-invalid)',
+      messageColor: 'white',
       closeOnClick: true,
     });
     return;
@@ -114,7 +117,6 @@ addToCart.addEventListener('click', () => {
     messageColor: 'white',
     closeOnClick: true,
   });
-  
 });
 
 // Купівля товару (якщо в корзині є цей товар (тобто кількість !== 0))
@@ -125,7 +127,7 @@ buyNow.addEventListener('click', () => {
       message: 'Спочатку візьміть товар',
       closeOnClick: true,
       position: 'bottomCenter',
-      backgroundColor: '#ad0000',
+      backgroundColor: 'var(--color-invalid)',
       messageColor: 'white',
     });
     return;
@@ -143,24 +145,26 @@ buyNow.addEventListener('click', () => {
 new Accordion('.accordion-container', {
   duration: 300,
   showMultiple: true,
-  onOpen: (currentElement) => {   
+  onOpen: currentElement => {
     // Функціонал скроллу після відкриття кожної вкладки на його висоту
     // (задля зручності користувачу дістатись іншої вкладки без зусиль)
-    const height = currentElement.getBoundingClientRect().height;     
+    const height = currentElement.getBoundingClientRect().height;
     bookModal.scrollBy({
       top: height,
-      behavior: "smooth",
-    }); 
+      behavior: 'smooth',
+    });
   },
   onClose: () => {
     // Функціонал скроллу до початку сторінки (саме вікна модалки, тобто bookModal.clientHeight)
     // у випадку, коли ВСІ вкладки закриті
     const accordions = document.querySelectorAll('.ac');
-    const anyOpen = Array.from(accordions).some(ac => ac.classList.contains('is-active'));
+    const anyOpen = Array.from(accordions).some(ac =>
+      ac.classList.contains('is-active')
+    );
     if (!anyOpen) {
       bookModal.scrollTo({
         top: 0,
-        behavior: 'smooth'
+        behavior: 'smooth',
       });
     }
   },
@@ -224,7 +228,7 @@ new Accordion('.accordion-container', {
 //         iziToast.error({
 //             message: 'Спочатку візьміть товар',
 //             position: 'bottomCenter',
-//             backgroundColor: '#ad0000',
+//             backgroundColor: 'var(--color-invalid)',
 //             messageColor: "white",
 //             closeOnClick: true,
 //         });
@@ -239,7 +243,6 @@ new Accordion('.accordion-container', {
 //     });
 //   });
 // }
-
 
 // Buy now
 // if (modalBuyBtn) {
@@ -295,68 +298,66 @@ new Accordion('.accordion-container', {
 //   });
 // }
 
-
 // contact modal
 
-const contactModal = document.querySelector(".contact-modal-overlay")
-const contactModalClose = document.querySelector(".contact-modal-close");
-const contactForm = document.querySelector(".contact-modal-form");
+const contactModal = document.querySelector('.contact-modal-overlay');
+const contactModalClose = document.querySelector('.contact-modal-close');
+const contactForm = document.querySelector('.contact-modal-form');
 
-contactModalClose.addEventListener("click", () => {
-    contactModal.classList.remove("open");
-    closeContactModal();
+contactModalClose.addEventListener('click', () => {
+  contactModal.classList.remove('open');
+  closeContactModal();
 });
 
-document.addEventListener("keydown", (event)  => {
-    if(event.key !== "Escape") {
-        return;
+document.addEventListener('keydown', event => {
+  if (event.key !== 'Escape') {
+    return;
+  }
+  contactModal.classList.remove('open');
+  closeContactModal();
+});
+
+contactModal.addEventListener('click', event => {
+  if (event.currentTarget !== event.target) {
+    return;
+  }
+  contactModal.classList.remove('open');
+  closeContactModal();
+});
+
+contactForm.addEventListener('submit', function (event) {
+  event.preventDefault();
+
+  const contactInputs = contactForm.querySelectorAll('.contact-form-input');
+  let isValid = true;
+
+  contactInputs.forEach(input => {
+    if (!input.checkValidity()) {
+      isValid = false;
+      input.classList.add('invalid');
+      iziToast.error({
+        title: 'Invalid Input',
+        message: `${input.name} is not valid.`,
+        position: 'bottomCenter',
+        closeOnClick: true,
+      });
+    } else {
+      input.classList.remove('invalid');
     }
-    contactModal.classList.remove("open");
-    closeContactModal();
-});
+  });
 
-contactModal.addEventListener('click', (event) => {
-    if(event.currentTarget !== event.target) {
-        return;
-    }
-    contactModal.classList.remove("open");
-    closeContactModal();
-});
-
-contactForm.addEventListener("submit", function (event) {
-    event.preventDefault();
-
-    const contactInputs = contactForm.querySelectorAll(".contact-form-input");
-    let isValid = true;
-
-    contactInputs.forEach(input => {
-        if (!input.checkValidity()) {
-            isValid = false;
-            input.classList.add("invalid");
-            iziToast.error({
-                title: 'Invalid Input',
-                message: `${input.name} is not valid.`,
-                position: 'bottomCenter',
-                closeOnClick: true,
-            });
-        } else {
-            input.classList.remove("invalid");
-        }
+  if (isValid) {
+    iziToast.success({
+      title: 'Valid Input',
+      message: `Registered successfully.`,
+      position: 'bottomCenter',
+      closeOnClick: true,
     });
-
-    if (isValid) {
-        iziToast.success({
-            title: 'Valid Input',
-            message: `Registered successfully.`,
-            position: 'bottomCenter',
-            closeOnClick: true,
-        });
-        contactForm.reset();
-    }
+    contactForm.reset();
+  }
 });
 
 function closeContactModal() {
-    document.querySelector('.contact-modal-overlay').classList.remove('open');
-    document.body.style.overflow = ''; 
+  document.querySelector('.contact-modal-overlay').classList.remove('open');
+  document.body.style.overflow = '';
 }
-
