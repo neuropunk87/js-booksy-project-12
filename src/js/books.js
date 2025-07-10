@@ -201,11 +201,22 @@ function selectCategoryDropdown(idx) {
 async function loadBooks(category = '') {
   showLoader();
   try {
+    let books = [];
+
     if (category) {
-      allBooks = await fetchBooksByCategory(category);
+      books = await fetchBooksByCategory(category);
     } else {
-      allBooks = await fetchTopBooks();
+      books = await fetchTopBooks();
     }
+
+    // Видалення дублікатів книг за _id
+    const seen = new Set();
+    allBooks = books.filter(book => {
+      const key = book.title.toLowerCase();
+      if (seen.has(key)) return false;
+      seen.add(key);
+      return true;
+    });;
     filteredBooks = allBooks;
     totalCount = filteredBooks.length;
     booksPerPage = getBooksPerPage();
